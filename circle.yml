@@ -1,0 +1,29 @@
+machine:
+  timezone:
+    America/New_York
+  ruby:
+    version:
+      2.4.0
+  node:
+    version:
+      7.9.0
+
+dependencies:
+  post:
+    - bin/yarn
+  cache_directories:
+    - "node_modules"
+    - ~/.cache/yarn
+
+# Customize database setup
+database:
+  override:
+  # replace CircleCI's generated database.yml
+  - cp config/database.yml.ci config/database.yml
+  - bin/rake db:create db:schema:load --trace
+
+test:
+  pre:
+    - bin/webpack
+  minitest_globs:
+    - test/**/*_test.rb
