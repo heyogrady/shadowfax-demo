@@ -3,7 +3,7 @@ SimpleForm.setup do |config|
   config.error_notification_class = "ui error message"
   config.button_class = "ui blue submit button"
   config.boolean_label_class = nil
-  config.form_class = "ui form"
+  config.default_form_class = "ui form"
 
   # Semantic-UI wrappers
   # ------------------------------------------------
@@ -41,7 +41,12 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :label
-    b.wrapper :ui_calendar, tag: "div", class: "ui calendar", html: { "data-ui-behavior": "calendar_date" } do |calendar|
+    b.wrapper(
+      :ui_calendar,
+      tag: "div",
+      class: "ui calendar",
+      html: { "data-ui-behavior": "calendar_date" }
+    ) do |calendar|
       calendar.wrapper :left_icon_input, tag: "div", class: "ui input left icon" do |left_icon_input|
         left_icon_input.wrapper :icon, tag: "i", class: "calendar icon" do
         end
@@ -66,7 +71,12 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
     b.use :label
-    b.wrapper :ui_calendar, tag: "div", class: "ui calendar", html: { "data-ui-behavior": "calendar_time" } do |calendar|
+    b.wrapper(
+      :ui_calendar,
+      tag: "div",
+      class: "ui calendar",
+      html: { "data-ui-behavior": "calendar_time" }
+    ) do |calendar|
       calendar.wrapper :left_icon_input, tag: "div", class: "ui input left icon" do |left_icon_input|
         left_icon_input.wrapper :icon, tag: "i", class: "clock icon" do
         end
@@ -209,6 +219,23 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
+  # Vertical boolean
+  config.wrappers(
+    :vertical_boolean,
+    tag: "div",
+    class: "field",
+    error_class: "error"
+  ) do |b|
+    b.use :html5
+    b.optional :readonly
+    b.wrapper tag: "div", class: "ui checkbox" do |ba|
+      ba.use :label_input
+    end
+
+    b.use :error, wrap_with: { tag: "div", class: "help-block" }
+    b.use :hint, wrap_with: { tag: "div", class: "help-block" }
+  end
+
   # Vertical select
   config.wrappers(
     :vertical_select,
@@ -294,7 +321,7 @@ SimpleForm.setup do |config|
     check_boxes: :vertical_checkboxes,
     radio_buttons: :vertical_inline_radio_buttons,
     # file: :vertical_file_input,
-    boolean: :slider,
+    boolean: :vertical_boolean,
     select: :vertical_select,
     datepicker: :datepicker
   }
