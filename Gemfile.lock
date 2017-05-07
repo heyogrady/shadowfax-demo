@@ -184,7 +184,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    childprocess (0.6.3)
+    childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     codeclimate-test-reporter (1.0.8)
@@ -403,8 +403,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
-    overcommit (0.39.1)
-      childprocess (~> 0.6.3)
+    overcommit (0.38.0)
+      childprocess (~> 0.5.8)
       iniparse (~> 1.4)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -513,6 +513,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scss_lint (0.52.0)
+      rake (>= 0.9, < 13)
+      sass (~> 3.4.20)
     secure_headers (3.6.4)
       useragent
     sexp_processor (4.9.0)
@@ -652,7 +655,7 @@ DEPENDENCIES
   minitest-reporters
   mocha
   newrelic_rpm
-  overcommit
+  overcommit (~> 0.38.0)
   pg
   pgcli-rails
   poltergeist
@@ -670,6 +673,7 @@ DEPENDENCIES
   rubocop (>= 0.44.0)
   ruby_gntp
   sass-rails (>= 5.0.3)
+  scss_lint (~> 0.52.0)
   secure_headers (~> 3.0)
   semantic-ui-sass!
   shog

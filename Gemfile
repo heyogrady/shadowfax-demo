@@ -70,11 +70,12 @@ group :development do
   gem "letter_opener" # show sent emails in the browser
   gem "listen", "~> 3.0.5"
   gem "meta_request" # for usings RailsPanel Chrome extension
-  gem "overcommit", require: false # git hooks
+  gem "overcommit", "~> 0.38.0", require: false # git hooks
   gem "rack-livereload"
   gem "rbnacl", "~> 3.4", require: false # to support ed25519 keys in net-ssh
   gem "rbnacl-libsodium", require: false # to support ed25519 keys in net-ssh
   gem "rubocop", ">= 0.44.0", require: false # evaluate against style guide
+  gem "scss_lint", "~> 0.52.0", require: false # lint SCSS
   gem "shog" # colored log output
   gem "spring" # speeds up development by keeping app running in the background
   gem "spring-watcher-listen"
