@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function(){
+document.addEventListener("turbolinks:load", function() {
   // Initialize Semantic UI dropdowns
   $("[data-ui-behavior=dropdown]").dropdown();
 
