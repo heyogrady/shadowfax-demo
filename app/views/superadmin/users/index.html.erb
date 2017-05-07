@@ -1,0 +1,29 @@
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Last signed in</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.last_sign_in_at %></td>
+        <td>
+          <%= link_to(
+            "Edit",
+            "#",
+            data: {
+              url: edit_superadmin_user_path(user),
+              behavior: "display-in-modal"
+            }
+          ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table><!-- /.ui striped table -->

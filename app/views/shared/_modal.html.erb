@@ -1,0 +1,17 @@
+<div class="modal" data-behavior="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= button_tag(
+          "x",
+          class: "close btn-close-dialog",
+          data: { behavior: "modal-close" }
+        ) %>
+        <h4 class="modal-title"><%= yield(:modal_title) %></h4>
+      </div><!-- /.modal-header -->
+      <div class="modal-body">
+        <%= yield(:modal_body) %>
+      </div><!-- /.modal-body -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

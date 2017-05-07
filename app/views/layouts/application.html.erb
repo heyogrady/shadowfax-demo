@@ -2,13 +2,58 @@
 <%# to include things like header, footer, and alerts that are common  %>
 <%# to most (but not all) views.                                       %>
 
-<%= render("shared/menu") %>
+<div class="ui sidebar inverted vertical menu" id="toc">
+  <%= render(partial: "shared/sidebar_items") %>
+</div>
 
-<%= semantic_flash %>
-<%= render("shared/page_header") %>
+<div class="pusher">
+  <div class="full height">
+    <div class="toc">
+      <div class="ui vertical inverted sticky menu" id="side-menu">
+        <%= render(partial: "shared/sidebar_items") %>
+      </div>
+    </div>
 
-<%= yield %>
+    <div class="article">
+      <%= render(partial: "shared/top_menu") %>
 
-<%= render("shared/footer") %>
+      <div class="masthead">
+        <div class="proto-h-15 proto-bg-gray">
+          <%= render(partial: "shared/page_header") %>
+        </div>
+      </div>
+
+      <div class="ui vertical segment">
+        <%= yield %>
+      </div>
+
+      <%= render(partial: "shared/footer") %>
+    </div>
+  </div>
+</div>
+
+<script>
+  // create sidebar sticky
+  $('.toc .ui.sticky')
+    .sticky({
+      context: $('.pusher > .full.height')
+    })
+  ;
+
+  // Menu dropdown
+  $('.ui.dropdown')
+    .dropdown()
+  ;
+
+  // Clicking "Home" should open sidebar menu
+  $('.sidebar').first()
+    .sidebar('setting', 'transition', 'overlay')
+    .sidebar('attach events', '.js-open-sidebar')
+  ;
+
+  // Initialize tabs
+  $(".js-main-section-menu .item").tab();
+  $(".js-side-section-menu .item").tab();
+</script>
 
 <% parent_layout "base" %>

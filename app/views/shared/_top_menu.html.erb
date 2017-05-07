@@ -1,0 +1,41 @@
+<div class="ui top fixed borderless inverted main menu">
+  <div class="ui container">
+    <a class="item js-open-sidebar" id="menu-button">
+      Menu
+    </a>
+
+    <div class="right menu">
+      <div class="ui category search item">
+        <div class="ui inverted transparent icon input">
+          <input class="prompt" type="text" placeholder="Search Shadowfax Demo...">
+          <i class="search link icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+      <div class="ui floating dropdown icon item">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <a class="item">English</a>
+          <a class="item">Russian</a>
+          <a class="item">Spanish</a>
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <a class="ui red circular label">2</a>
+        </div>
+      </div><!-- /.item -->
+      <div class="ui floating dropdown item">
+        <img class="ui avatar image" src="http://placehold.it/250">
+        <div class="menu">
+          <% if super_admin_signed_in? %>
+            <%= link_to("Superadmin", superadmin_root_path, class: "item") %>
+          <% end %>
+          <%= link_to("My Account", profile_path, class: "item") %>
+          <%= link_to("Change Password", password_edit_path, class: "item") %>
+          <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "item") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

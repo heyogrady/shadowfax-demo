@@ -228,7 +228,11 @@ SimpleForm.setup do |config|
   ) do |b|
     b.use :html5
     b.optional :readonly
-    b.wrapper tag: "div", class: "ui checkbox" do |ba|
+    b.wrapper(
+      tag: "div",
+      class: "ui checkbox",
+      html: { "data-ui-behavior": "checkbox" }
+    ) do |ba|
       ba.use :label_input
     end
 
