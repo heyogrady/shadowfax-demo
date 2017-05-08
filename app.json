@@ -40,13 +40,16 @@
     "LOG_LEVEL": {
       "value": "DEBUG"
     },
+    "MAILER_USERNAME": {
+      "required": true
+    },
+    "MAILER_PASSWORD": {
+      "required": true
+    },
     "MAILGUN_API_KEY": {
       "required": true
     },
     "MAILGUN_PUBLIC_API_KEY": {
-      "required": true
-    },
-    "MANDRILL_API_KEY": {
       "required": true
     },
     "MAX_THREADS": {

@@ -29,12 +29,14 @@ gem "fog-aws", require: false # for handling s3
 gem "foreman" # run server and worker
 gem "haml-rails" # haml as templating engine
 gem "inherited_resources", git: "https://github.com/activeadmin/inherited_resources"
+gem "inky-rb", require: "inky", git: "https://github.com/zurb/inky-rb", branch: "develop" # for email templates
 gem "jbuilder", ">= 2.4.1" # for building JSON
 gem "json", git: "https://github.com/flori/json", branch: "v1.8"
 gem "kaminari" # pagination
-gem "mandrill-api" # sending and tracking emails
+gem "mailgun-ruby", require: "mailgun" # sending and tracking emails
 gem "marginalia", git: "https://github.com/basecamp/marginalia" # query comments
 gem "newrelic_rpm" # monitor app performance
+gem "premailer-rails" # Stylesheet inlining for email
 gem "puma", "~> 3.8" # server
 gem "rack-protection", git: "https://github.com/sinatra/sinatra" # DJ dependency
 gem "rack-timeout" # raise error if Puma doesn't respond in given time
