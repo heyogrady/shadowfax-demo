@@ -3,7 +3,7 @@ SimpleForm.setup do |config|
   config.error_notification_class = "ui error message"
   config.button_class = "ui blue submit button"
   config.boolean_label_class = nil
-  config.default_form_class = "ui form"
+  config.form_class = "ui form"
 
   # Semantic-UI wrappers
   # ------------------------------------------------
