@@ -11,8 +11,11 @@ if ENV["CIRCLE_ARTIFACTS"]
 end
 
 SimpleCov.start do
-  add_filter "/test/"
+  add_filter "/app/admin/"
+  add_filter "/app/uploaders"
   add_filter "/config/"
+  add_filter "/lib/mailer_previews/"
+  add_filter "/test/"
 
   add_group "Models", "app/models"
   add_group "Controllers", "app/controllers"
