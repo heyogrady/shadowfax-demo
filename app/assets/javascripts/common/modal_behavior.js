@@ -56,7 +56,7 @@ var Modal = (function() {
         $(this).closest(modalContentSelector).hide();
     };
 
-    function submitForm(event){
+    function submitForm(event) {
         var form = $(this);
         event.preventDefault();
 

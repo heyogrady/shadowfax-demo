@@ -12,6 +12,8 @@ end
 
 SimpleCov.start do
   add_filter "/app/admin/"
+  add_filter "/app/channels/"
+  add_filter "/app/inputs/"
   add_filter "/app/uploaders"
   add_filter "/config/"
   add_filter "/lib/mailer_previews/"

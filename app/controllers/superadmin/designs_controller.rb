@@ -5,4 +5,3 @@ class Superadmin::DesignsController < ApplicationController
   end
 
 end
-
