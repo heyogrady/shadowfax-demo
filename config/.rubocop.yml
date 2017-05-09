@@ -12,6 +12,7 @@ AllCops:
     - "tmp/**/*"
     - Gemfile
     - Guardfile
+    - node_modules/**/*
     - Rakefile
 
 Metrics/AbcSize:
