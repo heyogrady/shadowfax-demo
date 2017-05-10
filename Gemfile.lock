@@ -530,7 +530,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    ruby_gntp (0.3.4)
     ruby_parser (3.9.0)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
@@ -704,7 +703,6 @@ DEPENDENCIES
   redis-namespace
   rollbar
   rubocop (>= 0.44.0)
-  ruby_gntp
   sass-rails (>= 5.0.3)
   scss_lint (~> 0.52.0)
   secure_headers (~> 3.0)

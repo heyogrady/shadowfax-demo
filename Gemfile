@@ -110,9 +110,6 @@ end
 group :development, :test do
   gem "awesome_print" # pretty print Ruby objects with style
   gem "byebug" # for interactively debugging behavior
-  if !ENV["CI"]
-    gem "ruby_gntp" # send notifications to Growl
-  end
   gem "jazz_fingers", ">= 3.0.2" # pry-based enhancements
   gem "pry-rails" # for interactively exploring objects
 end

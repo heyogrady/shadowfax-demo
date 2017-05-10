@@ -14,6 +14,8 @@ dependencies:
   cache_directories:
     - "node_modules"
     - ~/.cache/yarn
+  bundler:
+    without: [development]
 
 # Customize database setup
 database:
@@ -24,6 +26,12 @@ database:
 
 test:
   pre:
-    - bin/webpack
-  minitest_globs:
-    - test/**/*_test.rb
+    - bin/webpack:
+        parallel: true
+  override:
+    - bundle exec rake test TESTOPTS="--ci-dir=$CIRCLE_TEST_REPORTS/reports":
+        parallel: true
+        files:
+          - test/**/*_test.rb
+  post:
+    - bundle exec codeclimate-test-reporter
