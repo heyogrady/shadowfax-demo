@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.4.0"
 
-gem "rails", "5.1.0.rc2"
+gem "rails", "5.1.0"
 
 # Friends of Rails
 gem "jquery-rails" # jQuery
@@ -14,17 +14,17 @@ gem "uglifier", ">= 2.7.1"
 gem "pg" # PostgreSQL
 gem "pgcli-rails"
 
-gem "activeadmin", git: "https://github.com/activeadmin/activeadmin" # app admin
+gem "activeadmin"
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics" # segment.io
 gem "autoprefixer-rails" # for CSS vendor prefixes
 gem "carrierwave" # for handling file uploads
-gem "devise", ">= 4.2.0" # authentication
+gem "devise", git: "https://github.com/plataformatec/devise" # authentication
 gem "email_prefixer" # adds prefix to subject in emails
 gem "email_validator" # validates email addresses
 gem "fog-aws", require: false # for handling s3
 gem "foreman" # run server and worker
 gem "haml-rails" # haml as templating engine
-gem "inherited_resources", git: "https://github.com/activeadmin/inherited_resources"
+gem "inherited_resources"
 gem "inky-rb", require: "inky", git: "https://github.com/zurb/inky-rb", branch: "develop" # for email templates
 gem "jbuilder", ">= 2.4.1" # for building JSON
 gem "json", git: "https://github.com/flori/json", branch: "v1.8"
@@ -40,7 +40,7 @@ gem "redis-namespace"
 gem "rollbar" # error tracking
 gem "secure_headers", "~> 3.0" # harden headers for security
 gem "semantic-ui-sass", git: "https://github.com/heyogrady/semantic-ui-sass" # Semantic UI framework
-gem "simple_form" # forms made easy for Rails
+gem "simple_form", git: "https://github.com/agileConsultingLLC/simple_form", branch: "master" # forms made easy for Rails
 gem "sinatra", git: "https://github.com/sinatra/sinatra" # DJ dependency
 gem "therubyracer", platforms: :ruby
 gem "turbolinks", "~> 5"
