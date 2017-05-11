@@ -17,11 +17,7 @@ gem "pgcli-rails"
 gem "activeadmin", git: "https://github.com/activeadmin/activeadmin" # app admin
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics" # segment.io
 gem "autoprefixer-rails" # for CSS vendor prefixes
-gem "bootscale" # faster app boot
 gem "carrierwave" # for handling file uploads
-gem "daemons" # for starting Delayed Job background processes
-gem "delayed_job_active_record" # background job processing
-gem "delayed_job_web", ">= 1.2.10" # DelayedJob web interface
 gem "devise", ">= 4.2.0" # authentication
 gem "email_prefixer" # adds prefix to subject in emails
 gem "email_validator" # validates email addresses
