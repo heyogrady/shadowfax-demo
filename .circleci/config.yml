@@ -45,12 +45,9 @@ jobs:
             bundle exec rake db:create db:schema:load --trace
       - run:
           name: Run Tests
-          command: bundle exec rake test TESTOPTS="--ci-dir=/tmp/circle-junit"
+          command: bundle exec rake test TESTOPTS="--ci-dir=/tmp/circle-junit" && bundle exec codeclimate-test-reporter
       - store_test_results:
           path: /tmp/circle-junit
       - store_artifacts:
           path: coverage
           destination: coverage
-      # - run:
-      #     name: Report coverage to CodeClimate
-      #     command: bundle exec codeclimate-test-reporter

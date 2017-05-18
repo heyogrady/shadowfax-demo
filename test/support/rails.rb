@@ -30,7 +30,6 @@ SimpleCov.start("rails") do
 end
 
 SimpleCov.minimum_coverage(80)
-SimpleCov.use_merging(false)
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../../config/environment", __FILE__)
