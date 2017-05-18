@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.valid?
-      Mailer.delay.contact_us_notification(@contact)
+      Mailer.contact_us_notification(@contact)
       flash[:notice] = "Thank you for your message. We will contact you soon!"
       redirect_to pages_contact_us_path
     else

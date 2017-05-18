@@ -1,0 +1,53 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: heyogrady/ruby:2.4-node-browsers
+      - image: postgres:9.4.1
+        environment:
+          POSTGRES_USER: root
+          TZ: "/usr/share/zoneinfo/America/New_York"
+    working_directory: ~/shadowfax-demo
+    environment:
+      TZ: "/usr/share/zoneinfo/America/New_York"
+      RAILS_ENV: test
+      RACK_ENV: test
+
+    steps:
+      - checkout
+      # - run:
+      #     name: Install System Dependencies
+      #     command: apt-get update -qq && apt-get install -y build-essential nodejs
+      - restore_cache:
+          key: gemfile-dependency-cache-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install Dependencies
+          command: bundle install --path vendor/bundle --frozen --jobs=4 --retry=3 --without development
+      - save_cache:
+          key: gemfile-dependency-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          key: yarn-dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Yarn
+          command: bin/yarn install --pure-lockfile
+      - save_cache:
+          key: yarn-dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Create DB
+          command: |
+            cp config/database.yml.ci config/database.yml
+            export RAILS_ENV="test"
+            export RACK_ENV="test"
+            bundle exec rake db:create db:schema:load --trace
+      - run:
+          name: Run Tests
+          command: bundle exec rake test TESTOPTS="--ci-dir=/tmp/circle-junit" && bundle exec codeclimate-test-reporter
+      - store_test_results:
+          path: /tmp/circle-junit
+      - store_artifacts:
+          path: coverage
+          destination: coverage
