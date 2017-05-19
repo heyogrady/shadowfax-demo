@@ -12,12 +12,22 @@
         </div>
         <div class="results"></div>
       </div>
-      <div class="ui floating dropdown icon item">
+      <div class="ui floating dropdown icon item" data-ui-behavior="dropdown">
         <i class="wrench icon"></i>
         <div class="menu">
-          <a class="item">English</a>
-          <a class="item">Russian</a>
-          <a class="item">Spanish</a>
+          <%= link_to("Change Password", password_edit_path, class: "item") %>
+          <% if super_admin_signed_in? %>
+            <div class="divider"> </div>
+            <div class="header">Superadmin</div>
+            <%= link_to("Superadmin Dashboard asdfa asd fasd fsa fasd f sad", superadmin_root_path, class: "item") %>
+            <%= link_to(
+              "Routes",
+              "/rails/info/routes",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              class: "item"
+            ) %>
+          <% end %>
         </div>
       </div>
       <div class="item">
@@ -25,14 +35,10 @@
           <a class="ui red circular label">2</a>
         </div>
       </div><!-- /.item -->
-      <div class="ui floating dropdown item">
+      <div class="ui floating dropdown item" data-ui-behavior="dropdown">
         <img class="ui avatar image" src="http://placehold.it/250">
         <div class="menu">
-          <% if super_admin_signed_in? %>
-            <%= link_to("Superadmin", superadmin_root_path, class: "item") %>
-          <% end %>
           <%= link_to("My Account", profile_path, class: "item") %>
-          <%= link_to("Change Password", password_edit_path, class: "item") %>
           <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "item") %>
         </div>
       </div>

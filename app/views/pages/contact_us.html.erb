@@ -1,8 +1,22 @@
-<div class="row">
-  <%= simple_form_for(@contact) do |f| %>
-    <%= f.input(:title, required: true) %>
-    <%= f.input(:email, required: true) %>
-    <%= f.input(:body, as: :text, input_html: { rows: "3" }) %>
-    <%= f.submit("Send message") %>
-  <% end %>
-</div>
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        Contact us
+        <div class="sub header"></div>
+      </h1>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
+
+<div class="main ui container">
+  <div class="row">
+    <%= simple_form_for(@contact) do |f| %>
+      <%= f.input(:title, required: true) %>
+      <%= f.input(:email, required: true) %>
+      <%= f.input(:body, as: :text, input_html: { rows: "3" }) %>
+      <%= f.submit("Send message") %>
+    <% end %>
+  </div>
+</div><!-- /.main ui container -->
+

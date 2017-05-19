@@ -98,7 +98,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "ad044c347984ac2ec08cb068c17d3e0df8289809a8caa538dc9a565b194d17be203e4421f1c0c9345f97aa112b822d000167ab634e3334385bf4d26674f2310c"
+  # config.pepper = "ad044c347984ac2ec08cb068c17d3e0df8289809a8caa538dc9a565b1"\
+  # "94d17be203e4421f1c0c9345f97aa112b822d000167ab634e3334385bf4d26674f2310c"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -259,5 +260,6 @@ end
 
 Rails.application.config.to_prepare do
   Devise::SessionsController.layout "login"
-  Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "landing-page" }
+  Devise::RegistrationsController.layout(proc { user_signed_in? ? "application" : "login" })
+  Devise::PasswordsController.layout(proc { user_signed_in? ? "application" : "login" })
 end

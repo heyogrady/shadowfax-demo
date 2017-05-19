@@ -1,13 +1,25 @@
-.masthead {
-  padding: 54px 0 1em;
+.ui.masthead.segment {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: none;
+  margin: 0;
+  min-height: 185px;
+  padding: 6em 0 3em;
+  position: relative;
+  z-index: 3;
 }
 
-.masthead.segment {
-  position: relative;
-  z-index: 1;
-  margin: 0em;
-  min-height: 185px;
-  padding: 3em 0em;
-  background-color: #FFFFFF;
-  box-shadow: none;
+@media only screen and (max-width: $tabletBreakpoint) {
+  // Let Buttons Vertically Stack
+  .masthead .button {
+    margin-bottom: .75em;
+  }
+
+  .masthead .main.menu {
+    display: none;
+  }
+
+  .masthead .main.menu + .main.menu {
+    display: flex;
+  }
 }

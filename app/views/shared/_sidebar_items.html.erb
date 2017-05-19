@@ -2,9 +2,15 @@
   <div class="ui input"><input type="text" placeholder="Search..."></div>
 </div>
 <div class="item side-menu-only">
-  <img class="ui mini image middle aligned right spaced" src="http://placehold.it/35">
+  <%= image_tag("logo.png", class: "ui mini image middle aligned right spaced") %>
   <span>Shadowfax Demo</span>
 </div>
 <%= nav_link("Dashboard", root_path) %>
 <%= nav_link("Contact us", pages_contact_us_path) %>
 <%= nav_link("About", pages_about_path) %>
+<div class="item">
+  <div class="header">Templates</div><!-- /.header -->
+  <div class="menu">
+    <%= nav_link("Show", superadmin_designs_templates_show_path) %>
+  </div><!-- /.menu -->
+</div><!-- /.item -->

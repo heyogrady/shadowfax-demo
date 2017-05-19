@@ -1,7 +1,67 @@
-/* 100% Menu Width */
+// 100% Menu Width
 .fixed.menu > .container {
-  margin-left: 0em !important;
-  margin-right: 0em !important;
-  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   max-width: none !important;
+  width: 100% !important;
+}
+
+// Hide Top Bar
+@media only screen and (min-width: $largeMonitorBreakpoint) {
+  .fixed.main.menu {
+    left: 200px;
+    right: 0;
+    width: inherit;
+  }
+
+  // Hide Menu button
+  .fixed.main.menu .js-open-sidebar {
+    display: none;
+  }
+
+  // 100% Menu Width
+  .fixed.menu > .container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
+// Remove Fixed Sidebar / Show Top Bar
+@media only screen and (max-width: $largeMonitorBreakpoint - 1) {
+  // 100% Menu Width
+  .fixed.menu > .container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: $computerBreakpoint) {
+  // Still 100% Fixed Menu
+  .fixed.menu > .container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+}
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  // Hide Some Fixed Menu Content (Pagination, Search)
+  .fixed.menu > .container > .section.item {
+    display: none;
+  }
+}
+
+// Small Phone
+@media only screen and (max-width: $mobileBreakpoint) {
+  // Hide Main Menu Search
+  .main.menu .search.item {
+    display: none;
+  }
+
 }
