@@ -1,26 +1,39 @@
-<div class="row" style="padding-top: 10px;">
-  <%= simple_form_for(
-    resource, as: resource_name,
-    url: profile_update_path,
-    html: { method: :put }
-  ) do |f| %>
-    <h2>
-      Edit <%= resource_name.to_s.humanize %>
-    </h2>
-    <%= f.input(:email, required: true, autofocus: true) %>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>
-        Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-      </p>
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        My Profile
+        <div class="sub header"></div>
+      </h1>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
+
+<div class="ui main container">
+  <div class="row">
+    <%= simple_form_for(
+      resource, as: resource_name,
+      url: profile_update_path,
+      html: { method: :put }
+    ) do |f| %>
+      <h2>
+        Edit <%= resource_name.to_s.humanize %>
+      </h2>
+      <%= f.input(:email, required: true, autofocus: true) %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>
+          Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+        </p>
+      <% end %>
+      <%= f.input(:first_name, required: true) %>
+      <%= f.input(:last_name, required: true) %>
+      <%= f.input(:profile_image, as: :file) %>
+      <%= f.input(
+        :current_password,
+        required: true,
+        hint: "we need your current password to confirm your changes"
+      ) %>
+      <%= f.button(:submit, "Update") %>
     <% end %>
-    <%= f.input(:first_name, required: true) %>
-    <%= f.input(:last_name, required: true) %>
-    <%= f.input(:profile_image, as: :file) %>
-    <%= f.input(
-      :current_password,
-      required: true,
-      hint: "we need your current password to confirm your changes"
-    ) %>
-    <%= f.button(:submit, "Update") %>
-  <% end %>
-</div>
+  </div>
+</div><!-- /.ui main container -->

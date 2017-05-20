@@ -1,29 +1,42 @@
-<table class="ui striped table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Last signed in</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        Superadmin
+        <div class="sub header">Users</div>
+      </h1>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
+
+<div class="main ui container">
+  <table class="ui striped table">
+    <thead>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.last_sign_in_at %></td>
-        <td>
-          <%= link_to(
-            "Edit",
-            "#",
-            data: {
-              url: edit_superadmin_user_path(user),
-              behavior: "display-in-modal"
-            }
-          ) %>
-        </td>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Last signed in</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table><!-- /.ui striped table -->
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.last_sign_in_at %></td>
+          <td>
+            <%= link_to(
+              "Edit",
+              "#",
+              data: {
+                url: edit_superadmin_user_path(user),
+                behavior: "display-in-modal"
+              }
+            ) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><!-- /.ui striped table -->
+</div><!-- /.main ui container -->

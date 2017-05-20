@@ -2,58 +2,27 @@
 <%# to include things like header, footer, and alerts that are common  %>
 <%# to most (but not all) views.                                       %>
 
-<div class="ui sidebar inverted vertical menu" id="toc">
+<div class="ui sidebar inverted vertical menu" id="hidden-sidebar-menu">
   <%= render(partial: "shared/sidebar_items") %>
 </div>
 
+<%= render(partial: "shared/top_menu") %>
+
 <div class="pusher">
   <div class="full height">
-    <div class="toc">
-      <div class="ui vertical inverted sticky menu" id="side-menu">
+    <div class="visible-sidebar-menu">
+      <div class="ui vertical inverted sticky menu" id="side-menu" data-ui-behavior="visible-sidebar-sticky">
         <%= render(partial: "shared/sidebar_items") %>
       </div>
     </div>
 
-    <div class="article">
-      <%= render(partial: "shared/top_menu") %>
+    <div class="page-contents">
+      <%= semantic_flash %>
+      <%= yield %>
+    </div><!-- /.page-contents -->
 
-      <div class="masthead">
-        <div class="proto-h-15 proto-bg-gray">
-          <%= render(partial: "shared/page_header") %>
-        </div>
-      </div>
-
-      <div class="ui vertical segment">
-        <%= yield %>
-      </div>
-
-      <%= render(partial: "shared/footer") %>
-    </div>
-  </div>
-</div>
-
-<script>
-  // create sidebar sticky
-  $('.toc .ui.sticky')
-    .sticky({
-      context: $('.pusher > .full.height')
-    })
-  ;
-
-  // Menu dropdown
-  $('.ui.dropdown')
-    .dropdown()
-  ;
-
-  // Clicking "Home" should open sidebar menu
-  $('.sidebar').first()
-    .sidebar('setting', 'transition', 'overlay')
-    .sidebar('attach events', '.js-open-sidebar')
-  ;
-
-  // Initialize tabs
-  $(".js-main-section-menu .item").tab();
-  $(".js-side-section-menu .item").tab();
-</script>
+  </div><!-- /.full-height -->
+  <%= render(partial: "shared/footer") %>
+</div><!-- /.pusher -->
 
 <% parent_layout "base" %>
