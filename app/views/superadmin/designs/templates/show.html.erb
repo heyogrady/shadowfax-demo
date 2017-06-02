@@ -1,157 +1,491 @@
 <div class="ui masthead vertical segment">
   <div class="ui container">
     <div class="introduction">
-      <% if content_for?(:title) %>
         <h1 class="ui header">
-          <%= content_for(:title) %>
-          <div class="sub header"><%= content_for(:page_subhead) %></div>
+          <img src="http://placehold.it/300" class="ui circular image">
+          <div class="content">
+            Annie Masterson
+            <div class="sub header">Buyer Client</div>
+          </div><!-- /.content -->
         </h1>
-      <% else %>
-        <h1 class="ui header">
-          Untitled
-          <div class="sub header">Don’t forget to set <code>provide(:title)</code> for this view!</div>
-        </h1>
-      <% end %>
       <div class="ui hidden divider"></div>
+      <p><span class="fwb">Email:</span> annieogrady22+george@gmail.com | <span class="fwb">Phone:</span> (860) 575-5306 <a>Edit</a></p>
     </div><!-- /.introduction -->
   </div><!-- /.ui container -->
 </div><!-- /.ui masthead vertical tab segment -->
 
-<div class="ui main container">
-  <div class="ui internally celled stackable grid">
+<div class="ui main container full-width-container">
+  <div class="ui stackable grid">
     <div class="row">
-      <div class="ten wide column">
-        <div class="ui secondary pointing menu js-main-section-menu">
-          <a class="item active" data-tab="details">
-            Details
-          </a>
+      <div class="ui basic button">Add Property</div><!-- /.ui basic button -->
+      <div class="ui basic button">Add Contract</div><!-- /.ui basic button -->
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="column p-x-0">
+        <div class="ui fluid segment">
+          <img src="http://placehold.it/250" class="ui avatar image" />
+          <div class="ui dropdown button" data-ui-behavior="dropdown">
+            Active
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">Lead</div><!-- /.item -->
+              <div class="item">Prospect</div><!-- /.item -->
+              <div class="item">Active</div><!-- /.item -->
+              <div class="item">Pending</div><!-- /.item -->
+              <div class="item">Closed</div><!-- /.item -->
+              <div class="item">Paused</div><!-- /.item -->
+              <div class="item">Not Converted</div><!-- /.item -->
+              <div class="item">Long Term Prospect</div><!-- /.item -->
+            </div><!-- /.menu -->
+          </div><!-- /.ui dropdown -->
+          <div class="ui mini statistic">
+            <div class="value">
+              $75-$100k
+            </div>
+            <div class="label">
+              Price Range
+            </div>
+          </div>
+          <div class="ui mini statistic">
+            <div class="value">
+              $1,188
+            </div>
+            <div class="label">
+              Commission
+            </div>
+          </div>
+          <div class="ui mini statistic">
+            <div class="value">
+              0-3 Months
+            </div>
+            <div class="label">
+              Timeframe
+            </div>
+          </div>
+        </div><!-- /.ui segment -->
+      </div><!-- /.column -->
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="ui cards">
+        <div class="card">
+          <div class="content">
+            Last Activity
+          </div><!-- /.content -->
+          <div class="content">
+            <i class="check circle icon"></i>
+            <span class="fwb">Task:</span> Get photos taken of the outside of the house and the guest house for the new brochure
+            <div class="header">8 months ago</div><!-- /.header -->
+            <div class="meta">Phil Dunphy, Oct 13, 2016</div><!-- /.meta -->
+          </div>
         </div>
-        <div class="ui tab basic segment active" data-tab="details">
+        <div class="card">
+          <div class="content">
+            Next Activity
+          </div><!-- /.content -->
+          <div class="content">
+            <i class="check circle icon"></i>
+            <span class="fwb">Task:</span> Get photos taken of the outside of the house and the guest house for the new brochure
+            <div class="header">8 months ago</div><!-- /.header -->
+            <div class="meta">Phil Dunphy, Oct 13, 2016</div><!-- /.meta -->
+          </div>
         </div>
-      </div><!-- /.ten wide column -->
+      </div>
+    </div><!-- /.row -->
+    <div class="row">
+      <h2 class="ui header">Properties:</h2>
+    </div>
+    <div class="row">
+      <div class="ui basic button">Add New Property</div>
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="ui raised cards">
+        <div class="card">
+          <div class="content fwb">
+            29 Light Pink Road<br />Louisville
+          </div><!-- /.content -->
+          <div class="image">
+            <img src="http://placehold.it/500x250" />
+          </div><!-- /.image -->
+          <div class="content">
+            <div class="row m-b">
+              Status:
+              <div class="ui dropdown" data-ui-behavior="dropdown">
+                <div class="text">Possible</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item">Possible</div>
+                  <div class="item">Interested</div>
+                  <div class="item">Not Interested</div>
+                  <div class="item">Not Available</div>
+                </div>
+              </div>
+            </div><!-- /.row -->
+            <div class="row">
+              <div class="ui basic button">Add Contract</div><!-- /.ui basic button -->
+            </div><!-- /.row -->
+          </div><!-- /.content -->
+          <div class="extra content">
+            <div class="ui basic button">Edit</div><!-- /.ui basic button -->
+            <div class="ui basic button">Delete</div><!-- /.ui basic button -->
+          </div><!-- /.extra content -->
+        </div><!-- /.card -->
+      </div><!-- /.ui cards -->
+    </div><!-- /.row -->
+  </div><!-- /.ui stackable grid -->
+  <div class="ui internally divided stackable grid">
+    <div class="row">
+      <div class="eight wide column">
+        <table class="ui very basic table">
+          <thead>
+            <tr>
+              <th colspan="2">
+                <h3 class="ui left floated header m-b-0">
+                  Client Info
+                </h3>
+                <h3 class="ui right floated header">
+                  <a>Edit</a>
+                </h3>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>Annie Masterson</td>
+            </tr>
+            <tr>
+              <td>Spouse</td>
+              <td>George</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>annieogrady22+george@gmail.com</td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>(860) 575-6950</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>Hi, I found your listing on Trulia. Please send me more information about 16 Meadowlark Rd, Lyme, CT 06371. Thank you.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="2">
+                <h3 class="ui left floated header m-b-0">
+                  Buyer Lead Info
+                </h3>
+                <h3 class="ui right floated header">
+                  <a>Edit</a>
+                </h3>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Client Owner</td>
+              <td>Phil Dunphy</td>
+            </tr>
+            <tr>
+              <td>Contracted Status</td>
+              <td>Not Contacted</td>
+            </tr>
+            <tr>
+              <td>Lead Received</td>
+              <td>Apr 28, 2014</td>
+            </tr>
+            <tr>
+              <td>Lead Type</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Import Source</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Additional Fees</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table><!-- /.ui table -->
+      </div><!-- /.eight wide column -->
 
-      <div class="six wide column">
+      <div class="eight wide column">
         <div class="ui secondary pointing menu js-side-section-menu">
           <a class="item active" data-tab="activity">
             Activity
           </a>
-          <a class="item" data-tab="collaboration">
-            Collaboration
+          <a class="item" data-tab="comments">
+            Comments
+          </a>
+          <a class="item" data-tab="comments2">
+            Comments 2
+          </a>
+          <a class="item" data-tab="emails">
+            Emails
+          </a>
+          <a class="item" data-tab="tasks">
+            Tasks
           </a>
         </div>
         <div class="ui tab basic segment active" data-tab="activity">
           <div class="ui feed">
             <div class="event">
               <div class="label">
-                <img src="https://placehold.it/50">
+                <i class="user icon"></i>
               </div>
               <div class="content">
                 <div class="summary">
-                  <a class="user">
-                    Elliot Fu
-                  </a> added you as a friend
+                  You updated the contact
+                  <a class="record">
+                    Barbara Wiltsie
+                  </a>
                   <div class="date">
                     1 Hour Ago
                   </div>
                 </div>
-                <div class="meta">
-                  <a class="like">
-                    <i class="like icon"></i> 4 Likes
-                  </a>
+                <div class="extra text">
+                  <span class="">Address state:</span>
+                  <del>Ct</del>
                 </div>
               </div>
             </div>
             <div class="event">
               <div class="label">
-                <img src="https://placehold.it/50">
-              </div>
-              <div class="content">
-                <div class="summary">
-                  <a>Helen Troy</a> added <a>2 new illustrations</a>
-                  <div class="date">
-                    4 days ago
-                  </div>
-                </div>
-                <div class="extra images">
-                  <a><img src="https://placehold.it/600"></a>
-                  <a><img src="https://placehold.it/600"></a>
-                </div>
-                <div class="meta">
-                  <a class="like">
-                    <i class="like icon"></i> 1 Like
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="event">
-              <div class="label">
-                <img src="https://placehold.it/50">
+                <i class="add circle icon"></i>
               </div>
               <div class="content">
                 <div class="summary">
                   <a class="user">
-                    Jenny Hess
-                  </a> added you as a friend
+                    Annie
+                  </a> added to <a class="record">Brendan O'Grady (Buyer)</a>
                   <div class="date">
-                    2 Days Ago
+                    4 hours ago
                   </div>
                 </div>
-                <div class="meta">
-                  <a class="like">
-                    <i class="like icon"></i> 8 Likes
-                  </a>
+                <div class="extra text">
+                  <i class="square outline icon"></i>
+                  Call Brendan
                 </div>
               </div>
             </div>
             <div class="event">
               <div class="label">
-                <img src="https://placehold.it/50">
+                <i class="talk outline icon"></i>
               </div>
               <div class="content">
                 <div class="summary">
-                  <a>Joe Henderson</a> posted on his page
+                  <a class="user">
+                    Annie
+                  </a> commented on <a class="record">Brendan O'Grady</a>
+                  <div class="date">
+                    2 Days Ago
+                  </div>
+                </div>
+                <div class="extra text">
+                  <div class="ui raised yellow segment">
+                    <p>spoke to micki...</p>
+                  </div><!-- /.ui raised yellow segment -->
+                </div><!-- /.extra text -->
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <i class="check circle icon"></i>
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a class="user">
+                    Annie
+                  </a> checked off from <a class="record">Brendan O'Grady</a>
                   <div class="date">
                     3 days ago
                   </div>
                 </div>
                 <div class="extra text">
-                  Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
-                </div>
-                <div class="meta">
-                  <a class="like">
-                    <i class="like icon"></i> 5 Likes
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="event">
-              <div class="label">
-                <img src="https://placehold.it/50">
-              </div>
-              <div class="content">
-                <div class="summary">
-                  <a>Justen Kitsune</a> added <a>2 new photos</a> of you
-                  <div class="date">
-                    4 days ago
-                  </div>
-                </div>
-                <div class="extra images">
-                  <a><img src="https://placehold.it/600"></a>
-                  <a><img src="https://placehold.it/600"></a>
-                </div>
-                <div class="meta">
-                  <a class="like">
-                    <i class="like icon"></i> 41 Likes
-                  </a>
+                  <i class="green check square icon"></i>
+                  Finish CMA
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="ui tab basic segment" data-tab="collaboration">
-          <p></p>
+        <div class="ui tab basic segment" data-tab="comments">
+          <div class="ui form">
+            <div class="field">
+              <textarea rows="3"></textarea>
+            </div><!-- /.field -->
+            <div class="ui basic button">Submit</div><!-- /.ui button -->
+          </div><!-- /.ui form -->
+          <div class="ui feed">
+            <div class="event">
+              <div class="label">
+                <img src="http://placehold.it/250" />
+              </div><!-- /.label -->
+              <div class="content">
+                <div class="summary">
+                  Patrick wrote:
+                </div><!-- /.summary -->
+                <div class="ui raised yellow segment">
+                  <p>spoke to micki...</p>
+                </div><!-- /.ui raised segment -->
+                <div class="meta">
+                  Posted less than a minute ago -
+                  <span><a>Edit</a> or <a>Delete</a></span>
+                </div><!-- /.meta -->
+              </div><!-- /.content -->
+            </div><!-- /.event -->
+            <div class="event">
+              <div class="label">
+                <img src="http://placehold.it/250" />
+              </div><!-- /.label -->
+              <div class="content">
+                <div class="summary">
+                  Patrick wrote:
+                </div><!-- /.summary -->
+                <div class="ui raised yellow segment">
+                  <p>There are lots of good robots in the world. But some are bad. Watch out.</p>
+                </div><!-- /.ui raised segment -->
+                <div class="meta">
+                  Posted two weeks ago -
+                  <span><a>Edit</a> or <a>Delete</a></span>
+                </div><!-- /.meta -->
+              </div><!-- /.content -->
+            </div><!-- /.event -->
+          </div><!-- /.ui feed -->
         </div>
-      </div><!-- /.six wide column -->
+        <div class="ui tab basic segment" data-tab="comments2">
+          <div class="ui comments">
+            <div class="ui form">
+              <div class="field">
+                <textarea rows="3"></textarea>
+              </div><!-- /.field -->
+              <div class="ui basic labeled submit icon button">
+                <i class="edit icon"></i> Add Reply
+              </div>
+            </div><!-- /.ui form -->
+            <div class="comment">
+              <a class="avatar">
+                <img src="http://placehold.it/250" alt="" />
+              </a>
+              <div class="content">
+                <a class="author">Annie</a>
+                <div class="metadata">
+                  <span class="date">Today at 5:42pm</span>
+                </div><!-- /.metadata -->
+                <div class="text">
+                  How artistic!
+                </div><!-- /.text -->
+                <div class="actions">
+                  <a class="like">
+                    <i class="thumbs outline up icon"></i> Like
+                  </a>
+                  <a class="reply">Reply</a>
+                </div><!-- /.actions -->
+              </div><!-- /.content -->
+            </div><!-- /.comment -->
+            <div class="comment">
+              <a class="avatar">
+                <img src="http://placehold.it/250">
+              </a>
+              <div class="content">
+                <a class="author">Elliot Fu</a>
+                <div class="metadata">
+                  <span class="date">Yesterday at 12:30AM</span>
+                </div><!-- /.metadata -->
+                <div class="text">
+                  <p>This has been very useful for my research. Thanks as well!</p>
+                </div><!-- /.text -->
+                <div class="actions">
+                  <a class="like">
+                    <i class="thumbs outline up icon"></i> Like
+                  </a>
+                  <a class="reply">Reply</a>
+                </div><!-- /.actions -->
+              </div><!-- /.content -->
+              <div class="comments">
+                <div class="comment">
+                  <a class="avatar">
+                    <img src="http://placehold.it/250">
+                  </a>
+                  <div class="content">
+                    <a class="author">Jenny Hess</a>
+                    <div class="metadata">
+                      <span class="date">Just now</span>
+                    </div><!-- /.metadata -->
+                    <div class="text">
+                      Elliot you are always so right :)
+                    </div><!-- /.text -->
+                    <div class="actions">
+                      <a class="like">
+                        <i class="thumbs outline up icon"></i> Like
+                      </a>
+                      <a class="reply">Reply</a>
+                    </div><!-- /.actions -->
+                  </div><!-- /.content -->
+                </div><!-- /.comment -->
+              </div><!-- /.comments -->
+            </div><!-- /.comment -->
+          </div><!-- /.ui comments -->
+        </div><!-- /.ui.tab.segment -->
+        <div class="ui tab basic segment" data-tab="emails">
+          <div class="ui form">
+            <div class="inline field">
+              <label>Send to:</label>
+              <p>annie@agentbright.com</p>
+            </div><!-- /.inline field -->
+            <div class="field">
+              <input type="text" placeholder="CC" />
+            </div><!-- /.field -->
+            <div class="field">
+              <input type="text" placeholder="BCC" />
+            </div><!-- /.field -->
+            <div class="field">
+              <input type="text" placeholder="Subject" />
+            </div><!-- /.field -->
+            <div class="field">
+              <textarea placeholder="Your message"></textarea>
+            </div><!-- /.field -->
+            <div class="ui basic button">Send</div><!-- /.ui button -->
+          </div><!-- /.ui form -->
+          <h2>Messages</h2>
+          <div class="ui celled list">
+            <div class="item">
+              <img src="http://placehold.it/90" class="ui avatar image" />
+              <div class="content">
+                <div class="header">
+                  Annie O'Grady to me
+                </div><!-- /.header -->
+                <div class="description">
+                  <p class="fwb">Fwd: Introduction</p><!-- /.fwb -->
+                  <p>Nice to meet you...</p>
+                </div><!-- /.description -->
+              </div><!-- /.content -->
+            </div><!-- /.item -->
+          </div><!-- /.ui celled list -->
+        </div>
+        <div class="ui tab basic segment" data-tab="tasks">
+          <div class="ui basic button"><i class="plus icon"></i>Add new task</div>
+          <div class="ui center aligned segment">
+            <i class="circular grey huge check icon"></i>
+            <h3>Nice job!</h3>
+            <p>All of your tasks are complete.</p>
+          </div><!-- /.ui segment -->
+        </div>
+      </div><!-- /.eight wide column -->
     </div><!-- /.row -->
   </div>
 </div><!-- /.ui main container -->

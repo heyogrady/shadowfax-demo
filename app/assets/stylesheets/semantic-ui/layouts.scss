@@ -41,6 +41,10 @@ body.pushable > .pusher {
   max-width: 960px !important;
   width: auto !important;
 
+  &.full-width-container {
+    max-width: none !important;
+  }
+
   @media only screen and (max-width: $largeMonitorBreakpoint) {
     margin-left: 2em !important;
     margin-right: 2em !important;
@@ -52,7 +56,7 @@ body.pushable > .pusher {
   }
 }
 
-.pusher > .footer {
+.pusher .footer {
   border-radius: 0;
   clear: both;
   margin: 0;
@@ -75,3 +79,11 @@ body.pushable > .pusher {
   }
 }
 
+// ******************************
+//          Settings
+// ******************************
+
+.ui.segment.settings-menu-segment {
+  max-width: 260px;
+  padding-left: 0;
+}

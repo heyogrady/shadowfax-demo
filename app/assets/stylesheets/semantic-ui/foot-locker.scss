@@ -185,7 +185,10 @@ $widescreenBreakpoint:   1920px;
 
 // Border
 
-.no-border { border: none !important; }
+.no-border {
+  border: none !important;
+  box-shadow: none !important;
+}
 
 // Misc
 

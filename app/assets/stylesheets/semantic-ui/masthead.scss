@@ -7,6 +7,10 @@
   padding: 3em 0 3em;
   position: relative;
   z-index: 3;
+
+  &.compressed {
+    min-height: 0;
+  }
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {
