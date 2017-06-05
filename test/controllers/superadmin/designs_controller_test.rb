@@ -27,18 +27,8 @@ class Superadmin::DesignsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_designs_templates_wizard
-    get :templates_wizard
-    assert_response :success
-  end
-
   def test_designs_templates_settings
     get :templates_settings
-    assert_response :success
-  end
-
-  def test_designs_templates_components
-    get :templates_components
     assert_response :success
   end
 
