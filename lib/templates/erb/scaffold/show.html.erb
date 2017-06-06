@@ -2,18 +2,39 @@
   <%= singular_table_name.titleize %> #<%%= @<%= singular_table_name %>.id %>
 <%% end %>
 
-<table class="ui table">
-  <tbody>
-<% attributes.reject(&:password_digest?).each do |attribute| -%>
-    <tr>
-      <th><%= attribute.human_name %></th>
-      <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
-    </tr>
-<% end -%>
-  </tbody>
-</table>
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        <%= plural_table_name %>
+        <div class="sub header">#<%%= @<%= singular_table_name %>.id %></div>
+      </h1>
+      <div class="ui hidden divider"></div>
+      <%%= link_to("Edit", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "ui primary button") %>
+      <div class="ui hidden divider"></div>
+      <p><%%= link_to("Back", <%= index_helper %>_path) %></p>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
 
-<p>
-  <%%= link_to("Edit", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "ui primary button") %>
-  <%%= link_to("Back", <%= index_helper %>_path, class: "ui basic button") %>
-</p>
+<div class="main ui container full-width-container">
+  <table class="ui very basic table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h3 class="ui left floated header m-b-0">
+            Attributes
+          </h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <tr>
+        <th><%= attribute.human_name %></th>
+        <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+      </tr>
+<% end -%>
+    </tbody>
+  </table><!-- /.ui table -->
+</div><!-- /.main ui container -->
