@@ -1,0 +1,19 @@
+<div class="ui basic segment no-border m-a-0 settings-menu-segment">
+  <div class="ui vertical menu">
+    <div class="item">
+      <div class="header">Basics</div>
+      <div class="menu">
+        <%= nav_link("My Account", profile_path) %>
+        <%= nav_link("Change Password", password_edit_path) %>
+      </div>
+    </div>
+    <% if super_admin_signed_in? %>
+      <div class="item">
+        <div class="header">Superadmin</div>
+        <div class="menu">
+          <%= nav_link("Superadmin Dashboard", superadmin_root_path) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div><!-- /.ui segment -->

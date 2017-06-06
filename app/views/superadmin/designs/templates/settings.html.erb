@@ -1,0 +1,26 @@
+<%= render(partial: "shared/settings/header") %>
+
+<div class="main ui container">
+  <div class="ui horizontal segments no-border m-a-0">
+    <%= render(partial: "shared/settings/menu") %>
+    <div class="ui basic segment no-border m-a-0">
+      <h1 class="ui header">Password</h1><!-- /.ui header -->
+      <form class="ui form max-width-600">
+        <h3 class="ui dividing header">Edit Password</h3>
+        <div class="field">
+          <label>New Password</label>
+          <input type="text" />
+        </div><!-- /.field -->
+        <div class="field">
+          <label>New Password Confirmation</label>
+          <input type="text" />
+        </div><!-- /.field -->
+        <div class="field">
+          <label>Current Password</label>
+          <input type="text" />
+        </div><!-- /.field -->
+        <div class="ui primary button">Save</div><!-- /.ui primary button -->
+      </form><!-- /.ui form -->
+    </div><!-- /.ui segment -->
+  </div><!-- /.ui horizontal segments -->
+</div><!-- /.main ui container -->

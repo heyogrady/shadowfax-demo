@@ -4,7 +4,7 @@ if ( Modal !== undefined ) {
 
 var Modal = (function() {
 
-    var modalContentSelector = "[data-behavior ~= modal-content]",
+    var modalContentSelector = "[data-ui-behavior ~= modal]",
         modalContainerSelector = "[data-behavior ~= modal-container]";
 
     function _displayModal(link) {
@@ -13,7 +13,7 @@ var Modal = (function() {
 
         $modalContainer.load(url, function() {
             var $element = $(this).find(modalContentSelector);
-            $element.show();
+            $element.modal('show');
             $element.find('[data-focus~=true]').focus();
         });
     }
@@ -36,24 +36,19 @@ var Modal = (function() {
 
         if (data.modal_content) {
             modalContainer.html(data.modal_content)
-            modalContainer.find(modalContentSelector).show();
+            modalContainer.find(modalContentSelector).modal('show');
 
         } else if (data.redirect_to) {
             window.location.href = data.redirect_to;
 
         } else {
-            modalContainer.find(modalContentSelector).hide();
+            modalContainer.find(modalContentSelector).modal('hide');
         };
     }
 
     function displayInModal(event) {
         event.preventDefault();
         _displayModal($(this));
-    };
-
-    function hide(event) {
-        event.preventDefault()
-        $(this).closest(modalContentSelector).hide();
     };
 
     function submitForm(event) {
@@ -68,11 +63,9 @@ var Modal = (function() {
     };
 
     return { "displayInModal": displayInModal,
-             "hide": hide,
              "submitForm": submitForm }
 
 })();
 
 $(document).on('click', 'a[data-behavior ~= display-in-modal]', Modal.displayInModal);
-$(document).on("click", "[data-behavior ~= modal-close]", Modal.hide)
-$(document).on('submit', "[data-behavior ~= modal-container] form", Modal.submitForm)
+$(document).on('submit', "[data-ui-behavior ~= modal] form", Modal.submitForm)
