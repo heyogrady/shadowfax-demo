@@ -3,6 +3,8 @@ AllCops:
   DisplayStyleGuide: true
   TargetRubyVersion: 2.4
   Exclude:
+    - "app/controllers/admin/**/*"
+    - "app/dashboards/**/*"
     - "bin/*"
     - Capfile
     - config/boot.rb
@@ -296,13 +298,13 @@ UnderscorePrefixedVariableName:
 Void:
   Enabled: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines
 
 Metrics/BlockLength:

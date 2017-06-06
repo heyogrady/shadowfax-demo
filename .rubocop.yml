@@ -2,6 +2,8 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
+    - "app/controllers/admin/**/*"
+    - "app/dashboards/**/*"
     - "bin/**/*"
     - "tmp/**/*"
     - Capfile
@@ -17,11 +19,11 @@ AllCops:
 inherit_from:
   - config/.rubocop.yml
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: empty_lines
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: empty_lines
