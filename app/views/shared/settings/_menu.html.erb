@@ -13,6 +13,20 @@
         <div class="menu">
           <%= nav_link("Superadmin Dashboard", superadmin_root_path) %>
           <%= link_to(
+            "Routes",
+            "/rails/info/routes",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            class: "item"
+          ) %>
+          <%= link_to(
+            "Mailers",
+            "/rails/mailers",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            class: "item"
+          ) %>
+          <%= link_to(
             "Admin Dashboard",
             admin_root_path,
             target: "_blank",
