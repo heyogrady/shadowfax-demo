@@ -40,6 +40,7 @@ gem "redis-namespace"
 gem "rollbar" # error tracking
 gem "secure_headers", "~> 3.0" # harden headers for security
 gem "semantic-ui-sass", git: "https://github.com/heyogrady/semantic-ui-sass" # Semantic UI framework
+gem "sidekiq" # background processing
 gem "simple_form", git: "https://github.com/agileConsultingLLC/simple_form", branch: "master" # forms made easy for Rails
 gem "sinatra", git: "https://github.com/sinatra/sinatra" # DJ dependency
 gem "therubyracer", platforms: :ruby
