@@ -3,19 +3,18 @@
 <% end %>
 
 <%= content_for(:modal_body) do %>
-  <div class="row" style="padding-top: 10px;">
-    <%= simple_form_for(
-      @user,
-      url: superadmin_user_path(@user),
-      method: :patch,
-      html: { method: :put }
-    ) do |f| %>
-      <%= f.input(:email, required: true, autofocus: true) %>
-      <%= f.input(:first_name, required: true) %>
-      <%= f.input(:last_name, required: true) %>
-      <%= f.input(:profile_image, as: :file) %>
-      <%= f.button(:submit, "Update") %>
-    <% end %>
-  </div>
+  <%= simple_form_for(
+    @user,
+    url: superadmin_user_path(@user),
+    method: :patch,
+    html: { method: :put }
+  ) do |f| %>
+    <%= f.input(:email, required: true, autofocus: true) %>
+    <%= f.input(:first_name, required: true) %>
+    <%= f.input(:last_name, required: true) %>
+    <%= f.input(:profile_image, as: :file) %>
+    <%= f.button(:submit, "Update") %>
+  <% end %>
 <% end %>
+
 <%= render(partial: "shared/modal") %>
