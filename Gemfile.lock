@@ -296,33 +296,11 @@ GEM
     guard-rubocop (1.2.0)
       guard (~> 2.0)
       rubocop (~> 0.20)
-    haml (5.0.1)
-      temple (>= 0.8.0)
-      tilt
-    haml-lint (0.999.999)
-      haml_lint
-    haml-rails (1.0.0)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 4.0.6, < 6.0)
-      html2haml (>= 1.0.1)
-      railties (>= 4.0.1)
-    haml_lint (0.26.0)
-      haml (>= 4.0, < 5.1)
-      rainbow
-      rake (>= 10, < 13)
-      rubocop (>= 0.49.0)
-      sysexits (~> 1.1)
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
     hashdiff (0.3.4)
     hirb (0.7.3)
-    html2haml (2.2.0)
-      erubis (~> 2.7.0)
-      haml (>= 4.0, < 6)
-      nokogiri (>= 1.6.0)
-      ruby_parser (~> 3.5)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -524,8 +502,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    ruby_parser (3.9.0)
-      sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
     sass (3.4.24)
     sass-rails (5.0.6)
@@ -540,7 +516,6 @@ GEM
     secure_headers (3.6.4)
       useragent
     selectize-rails (0.12.4)
-    sexp_processor (4.9.0)
     shellany (0.0.1)
     shog (0.1.9)
       colored (~> 1.2)
@@ -579,8 +554,6 @@ GEM
     stripe_event (1.6.0)
       activesupport (>= 3.1)
       stripe (>= 1.6, < 3.0)
-    sysexits (1.2.0)
-    temple (0.8.0)
     terminal-notifier (1.8.0)
     terminal-notifier-guard (1.7.0)
     therubyracer (0.12.3)
@@ -663,8 +636,6 @@ DEPENDENCIES
   guard-livereload
   guard-minitest
   guard-rubocop
-  haml-lint
-  haml-rails
   inherited_resources
   inky-rb!
   jazz_fingers (>= 3.0.2)

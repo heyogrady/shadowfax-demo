@@ -23,7 +23,6 @@ gem "email_prefixer" # adds prefix to subject in emails
 gem "email_validator" # validates email addresses
 gem "fog-aws", require: false # for handling s3
 gem "foreman" # run server and worker
-gem "haml-rails" # haml as templating engine
 gem "inherited_resources"
 gem "inky-rb", require: "inky", git: "https://github.com/zurb/inky-rb", branch: "develop" # for email templates
 gem "jbuilder", ">= 2.4.1" # for building JSON
@@ -91,7 +90,6 @@ group :test do
   gem "codeclimate-test-reporter", require: nil # CodeClimate test coverage
   gem "database_cleaner" # database cleaner for testing
   gem "factory_girl_rails" # for setting up ruby objects as test data
-  gem "haml-lint" # style checking for haml
   gem "launchy"
   gem "minitest-capybara"
   gem "minitest-ci", git: "https://github.com/circleci/minitest-ci"
