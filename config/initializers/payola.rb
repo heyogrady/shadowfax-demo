@@ -1,4 +1,7 @@
 Payola.configure do |config|
+  config.secret_key = Rails.application.secrets.stripe[:secret_key]
+  config.publishable_key = Rails.application.secrets.stripe[:publishable_key]
+
   # Example subscription:
 
   # config.subscribe 'payola.package.sale.finished' do |sale|
