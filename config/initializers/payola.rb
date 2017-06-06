@@ -29,3 +29,5 @@ Payola.configure do |config|
     sale.refund! unless sale.refunded?
   end
 end
+
+Payola.background_worker = :sidekiq
