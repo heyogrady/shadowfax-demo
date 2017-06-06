@@ -33,4 +33,5 @@ public/uploads
 
 # For webpacker
 /public/packs
+/public/packs-test
 /node_modules
