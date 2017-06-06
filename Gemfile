@@ -32,6 +32,7 @@ gem "kaminari" # pagination
 gem "mailgun-ruby", require: "mailgun" # sending and tracking emails
 gem "marginalia", git: "https://github.com/basecamp/marginalia" # query comments
 gem "newrelic_rpm" # monitor app performance
+gem "payola-payments", git: "https://github.com/alekseenko/payola" # stripe payments
 gem "premailer-rails" # Stylesheet inlining for email
 gem "puma", "~> 3.8" # server
 gem "rack-protection", git: "https://github.com/sinatra/sinatra" # DJ dependency

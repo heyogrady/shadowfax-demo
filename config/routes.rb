@@ -11,6 +11,7 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
+  mount Payola::Engine => "/payola", as: :payola
   devise_for :users, controllers: { registrations: "registrations" }
 
   # Authentication
