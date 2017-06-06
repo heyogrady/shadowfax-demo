@@ -14,7 +14,7 @@ gem "uglifier", ">= 2.7.1"
 gem "pg" # PostgreSQL
 gem "pgcli-rails"
 
-gem "activeadmin"
+gem "administrate", git: "https://github.com/agentbright/administrate" # admin dashboards
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics" # segment.io
 gem "autoprefixer-rails" # for CSS vendor prefixes
 gem "carrierwave" # for handling file uploads

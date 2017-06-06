@@ -11,7 +11,6 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
-
   devise_for :users, controllers: { registrations: "registrations" }
 
   # Authentication
@@ -35,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, ->(u) { u.super_admin? } do
-    ActiveAdmin.routes(self)
+    draw :administrate
     namespace :superadmin do
       root to: "users#index"
       draw :designs

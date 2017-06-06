@@ -12,6 +12,13 @@
         <div class="header">Superadmin</div>
         <div class="menu">
           <%= nav_link("Superadmin Dashboard", superadmin_root_path) %>
+          <%= link_to(
+            "Admin Dashboard",
+            admin_root_path,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            class: "item"
+          ) %>
         </div>
       </div>
     <% end %>

@@ -24,7 +24,8 @@ ratings:
   - "**.rb"
 exclude_paths:
 - ".github/**/*"
-- "app/admin/**/*"
+- "app/controllers/admin/**/*"
+- "app/dashboards/**/*"
 - "app/assets/fonts/**/*"
 - "app/assets/images/**/*"
 - "app/assets/javascripts/third-party/**/*"
