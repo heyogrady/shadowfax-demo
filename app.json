@@ -65,8 +65,8 @@
   "formation": { },
   "addons": [
     "heroku-postgresql",
-    "memcachedcloud",
-    "papertrail"
+    "logentries",
+    "memcachedcloud"
   ],
   "buildpacks": [ ]
 }
