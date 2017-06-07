@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  created_at  :datetime         not null
+#  description :text
+#  id          :integer          not null, primary key
+#  name        :string
+#  permalink   :string
+#  price       :integer
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Book
+  description: A book about stuff that is for sale
+  price: 500 # $%.00
+  permalink: book
+
+two:
+  name: Poster
+  description: A cool poster for sale
+  price: 300 # $3.00
+  permalink: poster

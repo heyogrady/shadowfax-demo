@@ -46,4 +46,12 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Uncommnet to see log messages in test suites
+  # config.logger = Logger.new(STDOUT)
+  # config.log_level = :INFO
+  # config.logger.formatter = proc do |severity, _datetime, _progname, msg|
+  #   "\n|#{severity}|   #{msg}"
+  # end
+
 end

@@ -1,0 +1,64 @@
+<% provide(:title, "Listing products") %>
+
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        Products
+      </h1>
+      <div class="ui hidden divider"></div>
+      <%= link_to(new_product_path, class: "ui button") do %>
+        <i class="plus icon"></i> New Product
+      <% end %>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
+
+<div class="main ui container full-width-container">
+  <table class="ui very basic table">
+    <thead>
+      <tr>
+        <th class="collapsing">
+          <div class="ui fitted checkbox" data-ui-behavior="select-all-checkbox-popover" data-html="Select all <a href='#'>150 contacts</a> in the search." data-variation="inverted">
+            <input type="checkbox">
+            <label></label>
+          </div>
+        </th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Permalink</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <div class="ui fitted checkbox">
+              <input type="checkbox">
+              <label></label>
+            </div>
+          </td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td><%= product.permalink %></td>
+          <td>
+            <div class="ui small icon buttons">
+              <%= link_to(product, class: "ui button") do %>
+                <i class="unhide icon"></i>
+              <% end %>
+              <%= link_to(edit_product_path(product), class: "ui button") do %>
+                <i class="edit icon"></i>
+              <% end %>
+              <%= link_to(product, class: "negative ui button", method: :delete, data: { confirm: "Are you sure you want to delete this product?" }) do %>
+                <i class="trash icon"></i>
+              <% end %>
+            </div>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div><!-- /.main ui container full-width-container -->

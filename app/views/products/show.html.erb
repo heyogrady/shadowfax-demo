@@ -1,0 +1,56 @@
+<% provide(:title) do %>
+  Product #<%= @product.id %>
+<% end %>
+
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">
+        products
+        <div class="sub header">#<%= @product.id %></div>
+      </h1>
+      <div class="ui hidden divider"></div>
+      <%= link_to("Edit", edit_product_path(@product), class: "ui primary button") %>
+      <p><%= link_to("Back", products_path) %></p>
+    </div><!-- /.introduction -->
+  </div><!-- /.ui container -->
+</div><!-- /.ui masthead vertical tab segment -->
+
+<div class="main ui container full-width-container">
+  <table class="ui very basic table">
+    <thead>
+      <tr>
+        <th colspan="2">
+          <h3 class="ui left floated header m-b-0">
+            Attributes
+          </h3>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td><%= @product.name %></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><%= @product.description %></td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td><%= @product.price %></td>
+      </tr>
+      <tr>
+        <th>Permalink</th>
+        <td><%= @product.permalink %></td>
+      </tr>
+    </tbody>
+  </table><!-- /.ui table -->
+
+  <%= render(
+    "payola/transactions/checkout",
+    sellable: @product,
+    button_class: "ui primary button",
+    email: current_user&.email
+  ) %>
+</div><!-- /.main ui container -->
