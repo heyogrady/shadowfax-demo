@@ -25,11 +25,11 @@ class SuiSliderGroupInput < SimpleForm::Inputs::CollectionRadioButtonsInput
   end
 
   def build_nested_boolean_style_item_tag(collection_builder)
-    tag = String.new
+    tag = []
     tag << "<div class='ui slider checkbox' data-ui-behavior='checkbox'>".html_safe
     tag << collection_builder.radio_button + collection_builder.label
     tag << "</div>".html_safe
-    tag.html_safe
+    safe_join(tag)
   end
 
   def item_wrapper_class

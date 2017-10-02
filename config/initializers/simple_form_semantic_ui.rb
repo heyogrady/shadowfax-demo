@@ -158,18 +158,33 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
-  # Collection radio buttons horizontal
+  # Collection radio buttons horizontal inline
   config.wrappers(
-    :horizontal_radio_buttons,
+    :horizontal_inline_radio_buttons,
     tag: "div",
-    class: "inline fields",
+    class: "inline fields field",
     error_class: "error"
   ) do |b|
     b.use :html5
-    b.optional :readonly
     b.use :label
     b.use :input
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
+    b.use :hint, wrap_with: { tag: "p", class: "help-block" }
+  end
+
+  # Collection radio buttons horizontal - radios on line below the label
+  config.wrappers(
+    :horizontal_radio_buttons,
+    tag: "div",
+    class: "field",
+    error_class: "error"
+  ) do |b|
+    b.use :html5
+    b.use :label
+    b.wrapper(tag: "div", class: "inline fields field") do |ba|
+      ba.use :input
+    end
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -185,7 +200,7 @@ SimpleForm.setup do |config|
       toggle.use :input
       toggle.use :label
     end
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -200,7 +215,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -215,7 +230,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -236,7 +251,7 @@ SimpleForm.setup do |config|
       ba.use :label_input
     end
 
-    b.use :error, wrap_with: { tag: "div", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "div", class: "help-block" }
   end
 
@@ -255,7 +270,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input, class: "ui dropdown", "data-ui-behavior": "dropdown"
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -274,7 +289,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input, class: "ui search dropdown", "data-ui-behavior": "dropdown"
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -293,7 +308,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input, class: "ui dropdown", "data-ui-behavior": "dropdown", multiple: ""
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -312,7 +327,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input, class: "ui search superdropdown", "data-ui-behavior": "dropdown", multiple: ""
-    b.use :error, wrap_with: { tag: "span", class: "help-block" }
+    b.use :error, wrap_with: { tag: "small", class: "ui red pointing label" }
     b.use :hint, wrap_with: { tag: "p", class: "help-block" }
   end
 
@@ -322,12 +337,12 @@ SimpleForm.setup do |config|
   # buttons and other elements.
   config.default_wrapper = :vertical_form
   config.wrapper_mappings = {
-    check_boxes: :vertical_checkboxes,
-    radio_buttons: :vertical_inline_radio_buttons,
-    # file: :vertical_file_input,
     boolean: :vertical_boolean,
+    check_boxes: :vertical_check_boxes,
+    datepicker: :datepicker,
+    # file: :vertical_file_input,
+    radio_buttons: :vertical_radio_buttons,
     select: :vertical_select,
-    datepicker: :datepicker
   }
 
 end

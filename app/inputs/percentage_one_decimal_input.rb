@@ -1,4 +1,4 @@
-class SuiPercentageOneDecimalInput < SimpleForm::Inputs::Base
+class PercentageOneDecimalInput < SimpleForm::Inputs::Base
 
   def input(wrapper_options=nil)
     merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
@@ -18,7 +18,7 @@ class SuiPercentageOneDecimalInput < SimpleForm::Inputs::Base
   def input_html_options
     super.deep_merge(
       data: { input_mask: "onedecimal_percentage" },
-      type: "text"
+      type: "number"
     )
   end
 

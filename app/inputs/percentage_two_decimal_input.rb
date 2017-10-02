@@ -1,4 +1,4 @@
-class SuiPercentageInput < SimpleForm::Inputs::Base
+class PercentageTwoDecimalInput < SimpleForm::Inputs::Base
 
   def input(wrapper_options=nil)
     merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
@@ -11,6 +11,15 @@ class SuiPercentageInput < SimpleForm::Inputs::Base
     tag << "<div class='ui label'>%</div>".html_safe
     tag << "</div>".html_safe
     tag
+  end
+
+  protected
+
+  def input_html_options
+    super.deep_merge(
+      data: { input_mask: "twodecimal_percentage" },
+      type: "number"
+    )
   end
 
 end

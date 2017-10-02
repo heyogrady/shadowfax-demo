@@ -1,4 +1,4 @@
-class SuiMultiselectInput < SimpleForm::Inputs::SuiSelectInput
+class MultiselectInput < SimpleForm::Inputs::SuiSelectInput
 
   protected
 
