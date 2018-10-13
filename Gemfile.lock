@@ -29,15 +29,6 @@ GIT
       sass (>= 3.2)
 
 GIT
-  remote: https://github.com/rails/webpacker
-  revision: 5476dbbf0df65d7de7a2a412b887cbcd5f298efb
-  specs:
-    webpacker (4.0.0.pre.3)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/sinatra/sinatra
   revision: b7c10649cad56f3263df089027621fb1753620cb
   specs:
@@ -108,8 +99,6 @@ GEM
       selectize-rails (~> 0.6)
     administrate-field-password (0.0.4)
       administrate
-    airbrussh (1.3.0)
-      sshkit (>= 1.6.1, != 1.7.0)
     analytics-ruby (2.0.13)
     annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
@@ -121,7 +110,6 @@ GEM
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.12)
-    bcrypt_pbkdf (1.0.0)
     better_errors (2.5.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -142,23 +130,6 @@ GEM
       thor (~> 0.18)
     byebug (10.0.2)
     callsite (0.0.11)
-    capistrano (3.11.0)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (1.3.0)
-      capistrano (~> 3.1)
-      sshkit (~> 1.2)
-    capistrano-mb (0.35.0)
-      capistrano (>= 3.3.5)
-      sshkit (>= 1.6.1)
-    capistrano-nc (0.2.0)
-      capistrano (~> 3.0)
-      terminal-notifier (~> 2.0)
-    capistrano-rails (1.4.0)
-      capistrano (~> 3.1)
-      capistrano-bundler (~> 1.1)
     capybara (3.9.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -391,9 +362,6 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.3)
     nenv (0.3.0)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (5.0.2)
     netrc (0.11.0)
     newrelic_rpm (5.4.0.347)
     nio4r (2.3.1)
@@ -441,8 +409,6 @@ GEM
       rack (~> 2.0)
     rack-livereload (0.3.17)
       rack
-    rack-proxy (0.6.5)
-      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.4.2)
@@ -485,10 +451,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rbnacl (3.4.0)
-      ffi
-    rbnacl-libsodium (1.0.16)
-      rbnacl (>= 3.0.1)
     redis (4.0.2)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
@@ -511,6 +473,8 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-graphviz (1.2.3)
     ruby-progressbar (1.10.0)
+    ruby_audit (1.2.0)
+      bundler-audit (~> 0.6.0)
     ruby_parser (3.11.0)
       sexp_processor (~> 4.9)
     safe_yaml (1.0.4)
@@ -563,9 +527,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.17.0)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     sysexits (1.2.0)
     temple (0.8.0)
     terminal-notifier (2.0.0)
@@ -619,7 +580,6 @@ DEPENDENCIES
   annotate
   autoprefixer-rails
   awesome_print
-  bcrypt_pbkdf
   better_errors
   binding_of_caller
   bootsnap (>= 1.2.0)
@@ -628,11 +588,6 @@ DEPENDENCIES
   bullet
   bundler-audit (>= 0.5.0)
   byebug
-  capistrano (~> 3.6)
-  capistrano-bundler (~> 1.2)
-  capistrano-mb (>= 0.22.2)
-  capistrano-nc
-  capistrano-rails
   capybara
   carrierwave
   codeclimate-test-reporter
@@ -687,11 +642,10 @@ DEPENDENCIES
   rails-erd
   rails_12factor
   rails_stdout_logging
-  rbnacl (~> 3.4)
-  rbnacl-libsodium
   redis-namespace
   rollbar
   rubocop
+  ruby_audit
   sass-rails (>= 5.0.3)
   scss_lint
   secure_headers (~> 3.0)
@@ -714,7 +668,6 @@ DEPENDENCIES
   vcr
   web-console (~> 3.0)
   webmock
-  webpacker!
 
 RUBY VERSION
    ruby 2.5.1p57

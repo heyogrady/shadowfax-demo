@@ -48,21 +48,14 @@ gem "simple_form" # forms made easy for Rails
 gem "sinatra"
 gem "turbolinks", "~> 5"
 gem "twilio-ruby" # phone and SMS services
-gem "webpacker", git: "https://github.com/rails/webpacker" # webpack assets
 
 group :development do
   gem "annotate" # auto generate schema documentation
-  gem "bcrypt_pbkdf", require: false # to support ed25519 keys in net-ssh
   gem "better_errors" # better rails error messages
   gem "binding_of_caller" # interactive console in browser on errors
   gem "brakeman", require: false # security vulnerability scanner
   gem "bullet" # notify of db queries that can be improved
   gem "bundler-audit", ">= 0.5.0", require: false # check gems for patches
-  gem "capistrano", "~> 3.6", require: false
-  gem "capistrano-bundler", "~> 1.2", require: false
-  gem "capistrano-mb", ">= 0.22.2", require: false
-  gem "capistrano-nc", require: false
-  gem "capistrano-rails", require: false
   gem "dotenv-rails" # for loading environment variables
   gem "guard" # automate command line
   gem "guard-livereload", require: false # changed files = autoreloaded browser
@@ -73,9 +66,8 @@ group :development do
   gem "meta_request" # for usings RailsPanel Chrome extension
   gem "overcommit", "0.45.0", require: false # git hooks
   gem "rack-livereload"
-  gem "rbnacl", "~> 3.4", require: false # to support ed25519 keys in net-ssh
-  gem "rbnacl-libsodium", require: false # to support ed25519 keys in net-ssh
   gem "rubocop", require: false # evaluate against style guide
+  gem "ruby_audit", require: false # vulnerabity checker for Ruby itself
   gem "scss_lint", require: false # lint SCSS
   gem "shog" # colored log output
   gem "spring" # speeds up development by keeping app running in the background
