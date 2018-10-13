@@ -1,3 +1,5 @@
+// scss-lint:disable IdSelector, QualifyingElement
+
 //--------------
 //    Sidebar
 //---------------
@@ -29,7 +31,7 @@
 
 // Sidebar Header
 #hidden-sidebar-menu .inverted.header {
-  color: rgba(255, 255, 255, .8);
+  color: $white-opacity-80;
   font-size: 1em;
   font-weight: normal;
   margin-bottom: .5em;
@@ -37,11 +39,11 @@
 
 #hidden-sidebar-menu a.inverted.header.active,
 #hidden-sidebar-menu a.inverted.header:hover {
-  color: rgba(255, 255, 255, 1);
+  color: $white;
 }
 
 #hidden-sidebar-menu .menu .active.item {
-  color: #6dffff !important;
+  color: $semantic-teal !important;
 }
 
 #hidden-sidebar-menu .side-menu-only {
@@ -57,14 +59,14 @@
 // *******************************
 
 .pusher > .full.height {
-  background-color: #fff;
+  background-color: $white;
   display: flex;
   flex-direction: row;
 }
 
 // page layout
 .full.height > .visible-sidebar-menu {
-  background-color: #1b1c1d;
+  background-color: $deep-charcoal;
   flex: 0 0 auto;
   position: relative;
   width: 200px;
@@ -82,7 +84,7 @@
 }
 
 // Remove Fixed Sidebar / Show Top Bar
-@media only screen and (max-width: $largeMonitorBreakpoint - 1) {
+@media only screen and (max-width: $large-monitor-breakpoint - 1) {
   // Hide Fixed Sidebar
   .full.height > .visible-sidebar-menu {
     display: none;
@@ -90,7 +92,7 @@
 }
 
 // Small Phone
-@media only screen and (max-width: $mobileBreakpoint) {
+@media only screen and (max-width: $mobile-breakpoint) {
   // Resize Sidebar
   #hidden-sidebar-menu {
     width: 200px;

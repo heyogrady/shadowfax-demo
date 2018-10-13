@@ -34,7 +34,7 @@ def setup_for_storing_assets_in_s3
   end
 end
 
-if Rails.env == "test"
+if Rails.env.test?
   setup_for_storing_assets_in_test_env
 else
   case Rails.application.secrets.store_uploaded_assets_in

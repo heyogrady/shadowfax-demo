@@ -1,4 +1,5 @@
 if defined? GNTP
+
   GNTP.class_eval do
 
     def register(params)
@@ -108,4 +109,5 @@ if defined? GNTP
     end
 
   end
+
 end

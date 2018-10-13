@@ -6,14 +6,12 @@
   width: 100% !important;
 }
 
-// Hide Top Bar
-@media only screen and (min-width: $largeMonitorBreakpoint) {
-  .fixed.main.menu {
-    left: 200px;
-    right: 0;
-    width: inherit;
-  }
+.item.empty-logo-holder {
+  height: 54px;
+}
 
+// Hide Top Bar
+@media only screen and (min-width: $large-monitor-breakpoint) {
   // Hide Menu button
   .fixed.main.menu .js-open-sidebar {
     display: none;
@@ -29,7 +27,7 @@
 }
 
 // Remove Fixed Sidebar / Show Top Bar
-@media only screen and (max-width: $largeMonitorBreakpoint - 1) {
+@media only screen and (max-width: $large-monitor-breakpoint - 1) {
   // 100% Menu Width
   .fixed.menu > .container {
     margin-left: 0 !important;
@@ -39,7 +37,7 @@
   }
 }
 
-@media only screen and (max-width: $computerBreakpoint) {
+@media only screen and (max-width: $computer-breakpoint) {
   // Still 100% Fixed Menu
   .fixed.menu > .container {
     margin-left: 0 !important;
@@ -50,7 +48,7 @@
 
 }
 
-@media only screen and (max-width: $tabletBreakpoint) {
+@media only screen and (max-width: $tablet-breakpoint) {
   // Hide Some Fixed Menu Content (Pagination, Search)
   .fixed.menu > .container > .section.item {
     display: none;
@@ -58,7 +56,7 @@
 }
 
 // Small Phone
-@media only screen and (max-width: $mobileBreakpoint) {
+@media only screen and (max-width: $mobile-breakpoint) {
   // Hide Main Menu Search
   .main.menu .search.item {
     display: none;

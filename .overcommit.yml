@@ -16,6 +16,7 @@
 # Uncomment the following lines to make the configuration take effect.
 
 gemfile: Gemfile
+verify_signatures: false
 
 PreCommit:
   BundleCheck:
@@ -36,6 +37,13 @@ PreCommit:
   LocalPathsInGemfile:
     enabled: true
 
+  MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "^<<<<<<<[ \t]"]
+
   RailsSchemaUpToDate:
     enabled: true
 
@@ -52,6 +60,20 @@ PreCommit:
       - "**/db/structure.sql"
 
   YamlSyntax:
+    enabled: true
+
+CommitMsg:
+  CapitalizedSubject:
+    enabled: false
+
+  MessageFormat:
+    enabled: true
+    description: "Check commit message matches expected pattern"
+    pattern: '#\d{1,} - ..*'
+    expected_pattern_message: '#<Issue Id> - <Commit Message Description>'
+    sample_message: '#3244 - Add new email parser'
+
+  CapitalizedSubjectMessage:
     enabled: true
 
 PostCheckout:

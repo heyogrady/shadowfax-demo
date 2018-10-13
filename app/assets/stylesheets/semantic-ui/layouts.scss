@@ -1,7 +1,9 @@
+// scss-lint:disable QualifyingElement
+
 .page-contents {
   flex: 1 1 auto;
+  margin-top: 4em;
   min-width: 0;
-  margin-top: 3em;
 
   > .ui.message {
     margin: 1em;
@@ -33,6 +35,7 @@ body.pushable > .pusher {
 //      Definition Container
 // *******************************
 
+.container.breadcrumbs-container,
 .masthead > .container,
 .main.container,
 .fixed.menu > .container {
@@ -45,12 +48,12 @@ body.pushable > .pusher {
     max-width: none !important;
   }
 
-  @media only screen and (max-width: $largeMonitorBreakpoint) {
+  @media only screen and (max-width: $large-monitor-breakpoint - 1) {
     margin-left: 2em !important;
     margin-right: 2em !important;
   }
 
-  @media only screen and (max-width: $computerBreakpoint) {
+  @media only screen and (max-width: $computer-breakpoint - 1) {
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
@@ -68,7 +71,7 @@ body.pushable > .pusher {
 // ******************************
 
 .login-layout {
-  background-color: #dadada;
+  background-color: $grey-login-background;
 
   > .grid {
     height: 100%;
@@ -83,7 +86,31 @@ body.pushable > .pusher {
 //          Settings
 // ******************************
 
-.ui.segment.settings-menu-segment {
+.ui.segment.settings-segments__menu {
   max-width: 260px;
   padding-left: 0;
+
+  @media only screen and (max-width: $tablet-breakpoint - 1) {
+    // display: none;
+  }
+}
+
+.ui.horizontal.segments.settings-segments {
+  @media only screen and (max-width: $tablet-breakpoint - 1) {
+    flex-direction: column;
+  }
+
+  > .settings-segments__menu {
+    @media only screen and (min-width: $tablet-breakpoint) {
+      flex: 0 0 16.5rem;
+    }
+  }
+}
+
+// ******************************
+//         Wizard Layout
+// ******************************
+
+.wizard-layout {
+  background-color: $grey-login-background;
 }
