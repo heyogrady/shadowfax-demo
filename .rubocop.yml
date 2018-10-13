@@ -10,6 +10,7 @@ AllCops:
     - Capfile
     - config/boot.rb
     - config/environment.rb
+    - config/initializers/ruby_gntp.rb
     - config/initializers/version.rb
     - db/schema.rb
     - "tmp/**/*"
@@ -139,6 +140,8 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   ExcludedMethods: ["state_machine"]
   Exclude:
+    - config/initializers/simple_form_semantic_ui.rb
+    - config/routes.rb
     - lib/tasks/**/*
     - test/**/*
     - Guardfile

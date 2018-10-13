@@ -10,7 +10,7 @@
       resource,
       as: resource_name,
       url: registration_path(resource_name),
-      html: { class: "large" }
+      html: { class: "ui form max-width-600 large" }
     ) do |f| %>
       <div class="ui stacked left aligned segment">
         <%= f.input(:email, required: true, autofocus: true) %>

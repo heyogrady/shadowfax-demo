@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-ruby "2.4.1"
+ruby "2.5.1"
 
-gem "rails", "5.1.0"
+gem "rails", "5.2.1"
 
 # Friends of Rails
 gem "jquery-rails" # jQuery
@@ -14,36 +14,38 @@ gem "uglifier", ">= 2.7.1"
 gem "pg" # PostgreSQL
 gem "pgcli-rails"
 
-gem "administrate", git: "https://github.com/agentbright/administrate" # admin dashboards
+gem "administrate" # admin dashboards
+gem "administrate-field-password"
 gem "analytics-ruby", "~> 2.0.0", require: "segment/analytics" # segment.io
 gem "autoprefixer-rails" # for CSS vendor prefixes
+gem "bootsnap", ">= 1.2.0", require: false
+gem "browser" # For variants support
 gem "carrierwave" # for handling file uploads
-gem "devise", git: "https://github.com/plataformatec/devise" # authentication
+gem "devise", ">= 4.2.0" # authentication
 gem "email_prefixer" # adds prefix to subject in emails
 gem "email_validator" # validates email addresses
 gem "fog-aws", require: false # for handling s3
 gem "foreman" # run server and worker
 gem "haml-rails" # haml as templating engine
 gem "inherited_resources"
-gem "inky-rb", require: "inky", git: "https://github.com/zurb/inky-rb", branch: "develop" # for email templates
+gem "inky-rb", require: "inky" # for email templates
 gem "jbuilder", ">= 2.4.1" # for building JSON
 gem "json", git: "https://github.com/flori/json", branch: "v1.8"
 gem "kaminari" # pagination
 gem "mailgun-ruby", require: "mailgun" # sending and tracking emails
 gem "marginalia", git: "https://github.com/basecamp/marginalia" # query comments
+gem "mini_racer", platforms: :ruby
 gem "newrelic_rpm" # monitor app performance
 gem "premailer-rails" # Stylesheet inlining for email
-gem "puma", "~> 3.8" # server
+gem "puma" # server
 gem "rack-protection", git: "https://github.com/sinatra/sinatra" # DJ dependency
-gem "rack-timeout" # raise error if Puma doesn't respond in given time
 gem "redis-namespace"
 gem "rollbar" # error tracking
 gem "secure_headers", "~> 3.0" # harden headers for security
-gem "semantic-ui-sass", git: "https://github.com/heyogrady/semantic-ui-sass" # Semantic UI framework
+gem "semantic-ui-sass", git: "https://github.com/heyogrady/semantic-ui-sass", branch: "fix-autocomplete-off" # Semantic UI framework
 gem "sidekiq" # background processing
-gem "simple_form", git: "https://github.com/agileConsultingLLC/simple_form", branch: "master" # forms made easy for Rails
-gem "sinatra", git: "https://github.com/sinatra/sinatra" # DJ dependency
-gem "therubyracer", platforms: :ruby
+gem "simple_form" # forms made easy for Rails
+gem "sinatra"
 gem "turbolinks", "~> 5"
 gem "twilio-ruby" # phone and SMS services
 gem "webpacker", git: "https://github.com/rails/webpacker" # webpack assets
@@ -69,12 +71,12 @@ group :development do
   gem "letter_opener" # show sent emails in the browser
   gem "listen", "~> 3.0.5"
   gem "meta_request" # for usings RailsPanel Chrome extension
-  gem "overcommit", "~> 0.38.0", require: false # git hooks
+  gem "overcommit", "0.45.0", require: false # git hooks
   gem "rack-livereload"
   gem "rbnacl", "~> 3.4", require: false # to support ed25519 keys in net-ssh
   gem "rbnacl-libsodium", require: false # to support ed25519 keys in net-ssh
-  gem "rubocop", ">= 0.44.0", require: false # evaluate against style guide
-  gem "scss_lint", "~> 0.52.0", require: false # lint SCSS
+  gem "rubocop", require: false # evaluate against style guide
+  gem "scss_lint", require: false # lint SCSS
   gem "shog" # colored log output
   gem "spring" # speeds up development by keeping app running in the background
   gem "spring-watcher-listen"
@@ -89,7 +91,7 @@ group :test do
   gem "connection_pool"
   gem "codeclimate-test-reporter", require: nil # CodeClimate test coverage
   gem "database_cleaner" # database cleaner for testing
-  gem "factory_girl_rails" # for setting up ruby objects as test data
+  gem "factory_bot_rails" # for setting up ruby objects as test data
   gem "haml-lint" # style checking for haml
   gem "launchy"
   gem "minitest-capybara"
@@ -107,12 +109,17 @@ end
 group :development, :test do
   gem "awesome_print" # pretty print Ruby objects with style
   gem "byebug" # for interactively debugging behavior
+  gem "informed", "~> 1.0"
   gem "jazz_fingers", ">= 3.0.2" # pry-based enhancements
+  gem "knapsack" # For splitting tests
   gem "pry-rails" # for interactively exploring objects
+  gem "rails-erd" # for visualizing the schema
 end
 
 group :staging, :production do
+  gem "rack-timeout", "0.4.2" # raise error if Puma doesn't respond in given time
   gem "rails_12factor" # better logging
+  gem "rails_stdout_logging"
 end
 
 group :staging do

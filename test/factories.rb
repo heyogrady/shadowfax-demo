@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   sequence :code do |n|
     "code#{n}"
@@ -37,7 +37,7 @@ FactoryGirl.define do
     email
     first_name
     last_name
-    password "welcome"
+    password { "welcome" }
 
     # transient do
     #   subscription nil
@@ -48,7 +48,7 @@ FactoryGirl.define do
     # end
 
     factory :super_admin do
-      super_admin true
+      super_admin { true }
       # with_subscription
     end
 
