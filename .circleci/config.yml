@@ -30,11 +30,11 @@ jobs:
             - cc-test-reporter
   tests:
     <<: *defaults
-    parallelism: 2
+    parallelism: 1
     steps:
       - checkout
       - attach_workspace:
-          at: ~/shadofax-demo/tmp
+          at: ~/shadowfax-demo/tmp
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -153,7 +153,7 @@ jobs:
           name: Upload coverage results to CodeClimate
           # Number should match parallelism
           command: |
-            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 2 -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 1 -o tmp/codeclimate.total.json
             ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
 
 workflows:

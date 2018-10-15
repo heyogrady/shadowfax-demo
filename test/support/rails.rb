@@ -37,6 +37,9 @@ ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __dir__)
 require "rails/test_help"
 require "knapsack"
+require "rake/testtask"
+require "webmock/minitest"
+require "minitest/autorun"
 
 if ENV["CI"]
   Minitest::Ci.report_dir = "reports"
