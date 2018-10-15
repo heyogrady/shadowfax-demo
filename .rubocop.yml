@@ -377,7 +377,6 @@ Style/Not:
   StyleGuide: "https://github.com/bbatsov/ruby-style-guide#bang-not-not"
   Enabled: false
 
-# TODO
 Style/NumericLiterals:
   Description: >-
                  Add underscores to large numeric literals to improve their
