@@ -140,6 +140,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   ExcludedMethods: ["state_machine"]
   Exclude:
+    - config/environments/**/*
     - config/initializers/simple_form_semantic_ui.rb
     - config/routes.rb
     - lib/tasks/**/*

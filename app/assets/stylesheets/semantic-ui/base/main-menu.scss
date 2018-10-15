@@ -1,3 +1,5 @@
+// scss-lint:disable ImportantRule
+
 // 100% Menu Width
 .fixed.menu > .container {
   margin-left: 0 !important;
@@ -6,12 +8,18 @@
   width: 100% !important;
 }
 
-.item.empty-logo-holder {
-  height: 54px;
-}
+// .item.empty-logo-holder {
+//   height: 54px;
+// }
 
 // Hide Top Bar
 @media only screen and (min-width: $large-monitor-breakpoint) {
+  .fixed.main.menu {
+    left: 200px;
+    right: 0;
+    width: inherit;
+  }
+
   // Hide Menu button
   .fixed.main.menu .js-open-sidebar {
     display: none;

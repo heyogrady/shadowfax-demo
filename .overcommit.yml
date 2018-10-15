@@ -19,6 +19,28 @@ gemfile: Gemfile
 verify_signatures: false
 
 PreCommit:
+  ALL:
+    exclude: &default_excludes
+      - "app/assets/fonts/**/*"
+      - "app/assets/images/**/*"
+      - "app/assets/javascripts/third-party/**/*"
+      - "app/assets/javascripts/common/vendor/**/*"
+      - "app/assets/stylesheets/third-party/**/*"
+      - "app/controllers/admin/**/*"
+      - "app/dashboards/**/*"
+      - "config/**/*"
+      - "coverage/**/*"
+      - "db/load/**/*"
+      - "db/sample/**/*"
+      - "bin/**/*"
+      - "lib/archive/**/*"
+      - "log/**/*"
+      - "public/**/*"
+      - "test/**/*"
+      - "tmp/**/*"
+      - "uploads/**/*"
+      - "vendor/**/*"
+
   BundleCheck:
     enabled: true
 
@@ -29,6 +51,7 @@ PreCommit:
     enabled: true
     keywords: ["FIXME"]
     exclude:
+      - *default_excludes
       - .overcommit.yml
 
   # HamlLint:
@@ -57,6 +80,7 @@ PreCommit:
   TrailingWhitespace:
     enabled: true
     exclude:
+      - *default_excludes
       - "**/db/structure.sql"
 
   YamlSyntax:

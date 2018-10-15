@@ -1,0 +1,29 @@
+// scss-lint:disable ImportantRule QualifyingElement
+
+.ui.form.max-width-600 {
+  max-width: 600px;
+}
+
+.ui.form.full-width-form {
+  max-width: inherit;
+}
+
+.field-width-75 {
+  max-width: 75px !important;
+}
+
+.field-width-100 {
+  max-width: 100px !important;
+}
+
+.field-width-150 {
+  max-width: 150px !important;
+}
+
+.hidejs {
+  display: none;
+}
+
+.ui.file.input input[type="file"] {
+  display: none;
+}
