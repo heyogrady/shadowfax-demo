@@ -1,5 +1,9 @@
 # shadowfax-demo
 
+[![CircleCI](https://circleci.com/gh/heyogrady/shadowfax-demo/tree/master.svg?style=svg)](https://circleci.com/gh/heyogrady/shadowfax-demo/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bc8b0a86fbc2a4dd2f09/maintainability)](https://codeclimate.com/github/heyogrady/shadowfax-demo/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bc8b0a86fbc2a4dd2f09/test_coverage)](https://codeclimate.com/github/heyogrady/shadowfax-demo/test_coverage)
+
 This is a Rails 5 app.
 
 ## Documentation
