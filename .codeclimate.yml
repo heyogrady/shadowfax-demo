@@ -1,44 +1,88 @@
----
-engines:
+version: "2"
+checks:
+  argument-count:
+    enabled: true
+    config:
+      threshold: 4
+  complex-logic:
+    enabled: true
+    config:
+      threshold: 4
+  file-lines:
+    enabled: true
+    config:
+      threshold: 150
+  method-complexity:
+    enabled: true
+    config:
+      threshold: 6
+  method-count:
+    enabled: true
+    config:
+      threshold: 30
+  method-lines:
+    enabled: true
+    config:
+      threshold: 30
+  nested-control-flow:
+    enabled: true
+    config:
+      threshold: 4
+  return-statements:
+    enabled: true
+    config:
+      threshold: 4
+  similar-code:
+    enabled: true
+    config:
+      threshold: 60
+  identical-code:
+    enabled: true
+    config:
+      threshold: 60
+plugins:
   brakeman:
     enabled: true
   bundler-audit:
     enabled: true
-  csslint:
+  coffeelint:
     enabled: true
+  csslint:
+    enabled: false
   eslint:
     enabled: true
-    channel: "eslint-2"
   fixme:
     enabled: true
   rubocop:
     enabled: true
   scss-lint:
     enabled: true
-ratings:
-  paths:
-  - Gemfile.lock
-  - "**.coffee"
-  - "**.js"
-  - "**.jsx"
-  - "**.rb"
-exclude_paths:
-- ".github/**/*"
-- "app/controllers/admin/**/*"
-- "app/dashboards/**/*"
-- "app/assets/fonts/**/*"
-- "app/assets/images/**/*"
-- "app/assets/javascripts/third-party/**/*"
-- "app/assets/javascripts/common/vendor/**/*"
-- "app/assets/stylesheets/third-party/**/*"
-- "config/**/*"
-- "coverage/**/*"
-- "db/**/*"
-- "bin/**/*"
-- "lib/archive/**/*"
-- "log/**/*"
-- "public/**/*"
-- "test/**/*"
-- "tmp/**/*"
-- "uploads/**/*"
-- "vendor/**/*"
+exclude_patterns:
+  - ".github/**/*"
+  - ".overcommit.yml"
+  - "app/admin/**/*"
+  - "app/assets/fonts/**/*"
+  - "app/assets/images/**/*"
+  - "app/assets/javascripts/third-party/**/*"
+  - "app/assets/javascripts/common/vendor/**/*"
+  - "app/assets/javascripts/common/datepicker_common.js"
+  - "app/assets/javascripts/common/semantic-ui.js"
+  - "app/assets/javascripts/common/semantic-ui/sidebar.js"
+  - "app/assets/javascripts/desktop/datepicker.js"
+  - "app/assets/javascripts/phone/datepicker.js"
+  - "app/assets/stylesheets/third-party/**/*"
+  - "app/controllers/admin/**/*"
+  - "app/dashboards/**/*"
+  - "app/helpers/datetime_formatting_helper.rb"
+  - "config/**/*"
+  - "coverage/**/*"
+  - "db/**/*"
+  - "bin/**/*"
+  - "lib/archive/**/*"
+  - "lib/tasks/setup.rake"
+  - "log/**/*"
+  - "public/**/*"
+  - "test/**/*"
+  - "tmp/**/*"
+  - "uploads/**/*"
+  - "vendor/**/*"

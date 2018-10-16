@@ -1,0 +1,20 @@
+// scss-lint:disable ImportantRule
+
+.ui.grid.half-gutter-grid {
+  margin-left: -.5rem;
+  margin-right: -.5rem;
+
+  > .column:not(.row),
+  > .row > .column {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
+  @media only screen and (max-width: $computer-breakpoint - 1) {
+    > .doubling.row > .column,
+    &.doubling > .row > .column {
+      padding-bottom: .5rem !important;
+      padding-top: .5rem !important;
+    }
+  }
+}

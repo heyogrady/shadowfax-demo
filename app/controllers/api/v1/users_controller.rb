@@ -19,7 +19,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if @user.valid?
       render json: @user
     else
-      render json: { error: @user.errors.full_messages.to_sentence }, status: 422
+      render json: { error: @user.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 
@@ -29,11 +29,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     if @user.blank?
       respond_with_error "User with email #{params[:id]} not found.", :not_found
 
-    elsif @user.update_attributes(user_params)
+    elsif @user.update(user_params)
       render json: @user
 
     else
-      render json: { error: @user.errors.full_messages.to_sentence }, status: 422
+      render json: { error: @user.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 
@@ -47,7 +47,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       render json: @user
 
     else
-      render json: { error: @user.errors.full_messages.to_sentence }, status: 422
+      render json: { error: @user.errors.full_messages.to_sentence }, status: :unprocessable_entity
     end
   end
 

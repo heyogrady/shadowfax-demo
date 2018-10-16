@@ -5,7 +5,7 @@ class CurrencyInput < SimpleForm::Inputs::Base
 
     input_markup = @builder.text_field(attribute_name, merged_input_options)
 
-    tag = String.new
+    tag = ""
     tag << "<div class='ui labeled input'>".html_safe
     tag << "<div class='ui label'>$</div>".html_safe
     tag << input_markup

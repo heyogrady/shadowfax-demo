@@ -26,7 +26,7 @@ class Superadmin::UsersController < Superadmin::BaseController
   private
 
   def load_user
-    @user ||= User.find(params[:id])
+    @user ||= User.find(params[:id]) # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def user_params

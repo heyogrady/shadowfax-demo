@@ -1,0 +1,27 @@
+// bugfix for grid cells flex items
+.wide.flex_item {
+  // semantic-ui grid classes
+  $box-widths: 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen';
+
+  // semantic-ui grid sell width
+  $grid-cell-width: 6.25;
+
+  flex-basis: 100%;
+
+  @media (min-width: 768px) {
+
+    @for $i from 1 through length($box-widths) {
+      $width: nth($box-widths, $i);
+
+      &.#{$width} {
+        flex-basis: calc(#{$grid-cell-width * $i}% - 2rem);
+      }
+    }
+
+  }
+}
+
+// bugfix for flex-direction: column in IE 10/11
+.ui.statistic.column_flex_container {
+  display: block;
+}

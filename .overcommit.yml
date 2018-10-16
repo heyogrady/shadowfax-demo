@@ -16,8 +16,31 @@
 # Uncomment the following lines to make the configuration take effect.
 
 gemfile: Gemfile
+verify_signatures: false
 
 PreCommit:
+  ALL:
+    exclude: &default_excludes
+      - "app/assets/fonts/**/*"
+      - "app/assets/images/**/*"
+      - "app/assets/javascripts/third-party/**/*"
+      - "app/assets/javascripts/common/vendor/**/*"
+      - "app/assets/stylesheets/third-party/**/*"
+      - "app/controllers/admin/**/*"
+      - "app/dashboards/**/*"
+      - "config/**/*"
+      - "coverage/**/*"
+      - "db/load/**/*"
+      - "db/sample/**/*"
+      - "bin/**/*"
+      - "lib/archive/**/*"
+      - "log/**/*"
+      - "public/**/*"
+      - "test/**/*"
+      - "tmp/**/*"
+      - "uploads/**/*"
+      - "vendor/**/*"
+
   BundleCheck:
     enabled: true
 
@@ -28,6 +51,7 @@ PreCommit:
     enabled: true
     keywords: ["FIXME"]
     exclude:
+      - *default_excludes
       - .overcommit.yml
 
   # HamlLint:
@@ -35,6 +59,13 @@ PreCommit:
 
   LocalPathsInGemfile:
     enabled: true
+
+  MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "^<<<<<<<[ \t]"]
 
   RailsSchemaUpToDate:
     enabled: true
@@ -49,9 +80,24 @@ PreCommit:
   TrailingWhitespace:
     enabled: true
     exclude:
+      - *default_excludes
       - "**/db/structure.sql"
 
   YamlSyntax:
+    enabled: true
+
+CommitMsg:
+  CapitalizedSubject:
+    enabled: false
+
+  MessageFormat:
+    enabled: true
+    description: "Check commit message matches expected pattern"
+    pattern: '#\d{1,} - ..*'
+    expected_pattern_message: '#<Issue Id> - <Commit Message Description>'
+    sample_message: '#3244 - Add new email parser'
+
+  CapitalizedSubjectMessage:
     enabled: true
 
 PostCheckout:

@@ -1,8 +1,19 @@
-@import 'foot-locker';
+@import 'base/foot-locker';
 
-@import 'layouts';
-@import 'main-menu';
-@import 'sidebar';
-@import 'masthead';
-@import 'reveal';
-@import 'form';
+@import 'base/colors';
+@import 'base/ribbon';
+@import 'base/layouts';
+@import 'base/main-menu';
+@import 'base/sidebar';
+@import 'base/masthead';
+@import 'base/reveal';
+@import 'base/form';
+@import 'base/index';
+@import 'base/grids';
+@import 'base/text';
+@import 'base/ie';
+
+// Add app customizations here
+// @import 'app-customizations/file-name';
+
+@import 'app-customizations/super-overrides';

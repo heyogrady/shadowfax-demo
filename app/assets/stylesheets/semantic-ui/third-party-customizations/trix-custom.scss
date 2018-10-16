@@ -1,0 +1,19 @@
+// scss-lint:disable QualifyingElement
+
+trix-toolbar {
+  button.code {
+    display: none;
+  }
+
+  button.link {
+    display: none;
+  }
+}
+
+trix-editor {
+  min-height: 120px;
+}
+
+form.edit_email_campaign_form trix-toolbar .button_group.block_tools {
+  display: none;
+}

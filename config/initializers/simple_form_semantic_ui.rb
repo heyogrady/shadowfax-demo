@@ -3,7 +3,7 @@ SimpleForm.setup do |config|
   config.error_notification_class = "ui error message"
   config.button_class = "ui blue submit button"
   config.boolean_label_class = nil
-  config.form_class = "ui form"
+  config.default_form_class = "ui form max-width-600"
 
   # Semantic-UI wrappers
   # ------------------------------------------------

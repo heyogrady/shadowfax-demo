@@ -1,53 +1,185 @@
 version: 2
+defaults: &defaults
+  working_directory: ~/shadowfax-demo
+  docker:
+    - image: circleci/ruby:2.5.1
+      environment:
+        TZ: "/usr/share/zoneinfo/America/New_York"
+        RAILS_ENV: "test"
+        RACK_ENV: "test"
+    - image: circleci/postgres:9.6.2
+      environment:
+        TZ: "/usr/share/zoneinfo/America/New_York"
+        RAILS_ENV: "test"
+        RACK_ENV: "test"
 jobs:
   build:
-    docker:
-      - image: heyogrady/ruby:2.4-node-browsers
-      - image: postgres:9.4.1
-        environment:
-          POSTGRES_USER: root
-          TZ: "/usr/share/zoneinfo/America/New_York"
-    working_directory: ~/shadowfax-demo
-    environment:
-      TZ: "/usr/share/zoneinfo/America/New_York"
-      RAILS_ENV: test
-      RACK_ENV: test
+    <<: *defaults
+    steps:
+      # Get cc-test-reporter to report Code Coverage to CodeClimate
+      - run:
+          name:  Download cc-test-reporter
+          command: |
+            mkdir -p tmp/
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./tmp/cc-test-reporter
+            chmod +x ./tmp/cc-test-reporter
 
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - cc-test-reporter
+  tests:
+    <<: *defaults
+    parallelism: 1
     steps:
       - checkout
-      # - run:
-      #     name: Install System Dependencies
-      #     command: apt-get update -qq && apt-get install -y build-essential nodejs
+      - attach_workspace:
+          at: ~/shadowfax-demo/tmp
+      # Download and cache dependencies
       - restore_cache:
-          key: gemfile-dependency-cache-{{ checksum "Gemfile.lock" }}
+          keys:
+          - gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          - gem-cache-{{ checksum "Gemfile.lock" }}
+          - gem-cache
+
+      # Enable if using yarn
+      # - restore_cache:
+      #     keys:
+      #     - shadowfax-demo-yarn-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      #     - shadowfax-demo-yarn-deps-{{ .Branch }}
+      #     - shadowfax-demo-yarn-deps
+
+      # Install gems and packages
       - run:
-          name: Install Dependencies
-          command: bundle install --path vendor/bundle --frozen --jobs=4 --retry=3 --without development
+          name: Bundle Install
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+      # - run:
+      #     name: Yarn Install
+      #     command: bin/yarn install
+
+      # Store bundle cache
       - save_cache:
-          key: gemfile-dependency-cache-{{ checksum "Gemfile.lock" }}
+          key: gem-cache-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - restore_cache:
-          key: yarn-dependency-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Yarn
-          command: bin/yarn install --pure-lockfile
       - save_cache:
-          key: yarn-dependency-cache-{{ checksum "yarn.lock" }}
+          key: gem-cache-{{ checksum "Gemfile.lock" }}
           paths:
-            - node_modules
+            - vendor/bundle
+      - save_cache:
+          key: gem-cache
+          paths:
+            - vendor/bundle
+
+      # Store yarn cache: When using Yarn
+      # - save_cache:
+      #     key: shadowfax-demo-yarn-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - vendor/node_modules
+      # - save_cache:
+      #     key: shadowfax-demo-yarn-deps-{{ .Branch }}
+      #     paths:
+      #       - vendor/node_modules
+      # - save_cache:
+      #     key: shadowfax-demo-yarn-deps
+      #     paths:
+      #       - vendor/node_modules
+
+      # Create folders for test reports and artifacts
       - run:
-          name: Create DB
-          command: |
-            cp config/database.yml.ci config/database.yml
-            export RAILS_ENV="test"
-            export RACK_ENV="test"
-            bundle exec rake db:create db:schema:load --trace
+          name: Create test-results folder
+          command: mkdir -p ~/test_results
+      - run:
+          name: Create reports folder
+          command: mkdir reports
+
+      # Set up database
+      - run: cp config/database.yml.ci config/database.yml
+      - run: bundle exec rake db:create db:schema:load
+      # - run: bin/yarn install
+      # - run: bin/webpack
+      - run: bundle exec ruby-audit check
+      - run: bundle exec bundle-audit check --update
+
+      - restore_cache:
+          keys:
+            - v1-asset-cache-{{ arch }}-{{ .Branch }}
+            - v1-asset-cache-
+
+      - run: bundle exec rake assets:precompile
+
+      - save_cache:
+          key: v1-asset-cache-{{ arch }}-{{ .Branch }}-{{ epoch }}
+          paths:
+            - public/assets
+            - tmp/cache/assets/sprockets
+
+      # Run tests
       - run:
           name: Run Tests
-          command: bundle exec rake test TESTOPTS="--ci-dir=/tmp/circle-junit" && bundle exec codeclimate-test-reporter
+          shell: /bin/bash
+          command: |
+            set -e
+            COVERAGE=true bundle exec rake knapsack:minitest
+            ./tmp/cc-test-reporter format-coverage -t simplecov -o tmp/codeclimate.$CIRCLE_NODE_INDEX.json coverage/$CIRCLE_NODE_INDEX/.resultset.json
+      - persist_to_workspace:
+          root: tmp
+          paths:
+            - codeclimate.*.json
+
+      # Save test results for timing analysis
       - store_test_results:
-          path: /tmp/circle-junit
+          path: ~/test_results
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+          destination: reports
       - store_artifacts:
           path: coverage
           destination: coverage
+      - store_artifacts:
+          path: knapsack_minitest_report.json
+          destination: knapsack_minitest_report.json
+
+  upload-coverage:
+    <<: *defaults
+    environment:
+      - CC_TEST_REPORTER_ID: 2dcffdc29d5ec87c96fb9540944c4d0b1bfb286d13723a3bcd6f76df69d4a930
+    steps:
+      - attach_workspace:
+          at: ~/shadowfax-demo/tmp
+      - run:
+          name: Upload coverage results to CodeClimate
+          # Number should match parallelism
+          command: |
+            ./tmp/cc-test-reporter sum-coverage tmp/codeclimate.*.json -p 1 -o tmp/codeclimate.total.json
+            ./tmp/cc-test-reporter upload-coverage -i tmp/codeclimate.total.json
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+      - tests:
+          requires:
+            - build
+      - upload-coverage:
+          requires:
+            - tests
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
+      - tests:
+          requires:
+            - build
+      - upload-coverage:
+          requires:
+            - tests

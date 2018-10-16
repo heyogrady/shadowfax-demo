@@ -1,0 +1,17 @@
+// .reveal-section,
+// .field.reveal-section,
+// .ui.form .grouped.fields .field.reveal-section {
+//   &.is-visible {
+//     display: inherit !important;
+//   }
+
+//   &:not(.is-visible) {
+//     display: none;
+//   }
+// }
+
+.reveal-section,
+.field.reveal-section,
+.ui.form .grouped.fields .field.reveal-section {
+  display: none;
+}

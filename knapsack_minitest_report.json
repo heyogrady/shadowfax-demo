@@ -1,0 +1,20 @@
+{
+  "controllers/sessions_controller_test.rb": 0.04884815216064453,
+  "helpers/application_helper_test.rb": 0.0005457401275634766,
+  "mailers/mailer_test.rb": 0.011809587478637695,
+  "controllers/api/v1/sessions_controller_test.rb": 0.14292001724243164,
+  "controllers/contacts_controller_test.rb": 0.03629112243652344,
+  "integration/layout_helper_test.rb": 0.029493093490600586,
+  "helpers/javascript_helper_test.rb": 0.0022563934326171875,
+  "controllers/superadmin/designs_controller_test.rb": 0.081207275390625,
+  "mailers/template_mailer_test.rb": 2.5840280055999756,
+  "models/contact_test.rb": 0.0025856494903564453,
+  "controllers/pages_controller_test.rb": 0.022838830947875977,
+  "controllers/api/v1/users_controller_test.rb": 0.0791177749633789,
+  "controllers/home_controller_test.rb": 0.019231081008911133,
+  "helpers/retina_image_helper_test.rb": 0.0004994869232177734,
+  "controllers/registrations_controller_test.rb": 0.32853245735168457,
+  "helpers/datetime_formatting_helper_test.rb": 0.012094497680664062,
+  "models/user_test.rb": 0.010662317276000977,
+  "controllers/superadmin/users_controller_test.rb": 0.06664872169494629
+}

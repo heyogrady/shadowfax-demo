@@ -13,7 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join("tmp/caching-dev.txt").exist?
+  if Rails.root.join("tmp", "caching-dev.txt").exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
@@ -31,7 +31,7 @@ Rails.application.configure do
 
   # Ensure mailer works in development.
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: "localhost:3000" }
   config.action_mailer.asset_host = "http://localhost:3000"
 
@@ -50,6 +50,20 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  # Do not compress assets in development.
+  config.assets.compress = false
+
+  # Adds additional error checking when serving assets at runtime.
+  # Checks for improperly declared sprockets dependencies.
+  # Raises helpful error messages.
+  config.assets.raise_runtime_errors = true
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
+
+  config.log_formatter = ::Logger::Formatter.new
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

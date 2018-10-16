@@ -1,0 +1,116 @@
+// scss-lint:disable ImportantRule, QualifyingElement
+
+.page-contents {
+  flex: 1 1 auto;
+  margin-top: 3em;
+  min-width: 0;
+
+  > .ui.message {
+    margin: 1em;
+  }
+}
+
+// Add Sticky Footers
+body.pushable > .pusher {
+  display: flex;
+  flex-direction: column;
+
+  > .full.height {
+    flex: 1 0 auto;
+  }
+}
+
+
+.main.container {
+  padding: 2em 0 7em;
+
+  &.wide {
+    margin: 0 auto;
+    max-width: 1140px;
+    width: 80%;
+  }
+}
+
+// *******************************
+//      Definition Container
+// *******************************
+
+.container.breadcrumbs-container,
+.masthead > .container,
+.main.container,
+.fixed.menu > .container {
+  margin-left: 3em !important;
+  margin-right: 3em !important;
+  max-width: 960px !important;
+  width: auto !important;
+
+  &.full-width-container {
+    max-width: none !important;
+  }
+
+  @media only screen and (max-width: $large-monitor-breakpoint - 1) {
+    margin-left: 2em !important;
+    margin-right: 2em !important;
+  }
+
+  @media only screen and (max-width: $computer-breakpoint - 1) {
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+  }
+}
+
+.pusher .footer {
+  border-radius: 0;
+  clear: both;
+  margin: 0;
+  padding: 4em 0;
+}
+
+// ******************************
+//          Login Layout
+// ******************************
+
+.login-layout {
+  background-color: $grey-login-background;
+
+  > .grid {
+    height: 100%;
+  }
+
+  .column {
+    max-width: 450px;
+  }
+}
+
+// ******************************
+//          Settings
+// ******************************
+
+.ui.segment.settings-segments__menu {
+  max-width: 260px;
+  padding-left: 0;
+
+  @media only screen and (max-width: $tablet-breakpoint - 1) {
+    // display: none;
+  }
+}
+
+.ui.horizontal.segments.settings-segments {
+  @media only screen and (max-width: $tablet-breakpoint - 1) {
+    flex-direction: column;
+  }
+
+  > .settings-segments__menu {
+    @media only screen and (min-width: $tablet-breakpoint) {
+      flex: 0 0 16.5rem;
+    }
+  }
+}
+
+// ******************************
+//         Wizard Layout
+// ******************************
+
+.wizard-layout {
+  background-color: $grey-login-background;
+}
