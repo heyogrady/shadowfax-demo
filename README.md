@@ -16,7 +16,7 @@ This README describes the purpose of this repository and how to set up a develop
 
 This project requires:
 
-* Ruby 2.5.1, preferably managed using [rbenv][]
+* Ruby 2.5.3, preferably managed using asdf
 * PostgreSQL must be installed and accepting connections
 
 ## Getting started
