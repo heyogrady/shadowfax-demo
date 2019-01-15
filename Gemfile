@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.5.3"
 
-gem "rails", "5.2.1"
+gem "rails", "5.2.2"
 
 # Friends of Rails
 gem "jquery-rails" # jQuery
@@ -56,7 +56,7 @@ group :development do
   gem "binding_of_caller" # interactive console in browser on errors
   gem "brakeman", require: false # security vulnerability scanner
   gem "bullet" # notify of db queries that can be improved
-  gem "bundler-audit", ">= 0.5.0", require: false # check gems for patches
+  gem "bundler-audit", require: false # check gems for patches
   gem "dotenv-rails" # for loading environment variables
   gem "guard" # automate command line
   gem "guard-livereload", require: false # changed files = autoreloaded browser
@@ -65,7 +65,7 @@ group :development do
   gem "letter_opener" # show sent emails in the browser
   gem "listen", "~> 3.0.5"
   gem "meta_request" # for usings RailsPanel Chrome extension
-  gem "overcommit", "0.45.0", require: false # git hooks
+  gem "overcommit", require: false # git hooks
   gem "rack-livereload"
   gem "rubocop", require: false # evaluate against style guide
   gem "ruby_audit", require: false # vulnerabity checker for Ruby itself
