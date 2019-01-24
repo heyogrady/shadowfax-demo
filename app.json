@@ -31,12 +31,6 @@
     "MAILGUN_PUBLIC_API_KEY": {
       "required": true
     },
-    "MAX_THREADS": {
-      "value": "2"
-    },
-    "NEW_RELIC_LICENSE_KEY": {
-      "required":true
-    },
     "SECRET_KEY_BASE":{
       "required":true
     },
@@ -45,6 +39,12 @@
     },
     "RAILS_ENV": {
       "value": "staging"
+    },
+    "RAILS_MAX_THREADS": {
+      "value": "2"
+    },
+    "RAILS_MIN_THREADS": {
+      "value": "2"
     },
     "ROLLBAR_ACCESS_TOKEN": {
       "required": true

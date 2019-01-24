@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.6.0"
 
-gem "rails", "5.2.2"
+gem "rails", "6.0.0.beta1"
 
 # Friends of Rails
 gem "jquery-rails" # jQuery
@@ -25,10 +25,8 @@ gem "devise", ">= 4.2.0" # authentication
 gem "email_prefixer" # adds prefix to subject in emails
 gem "email_validator" # validates email addresses
 gem "fog-aws", require: false # for handling s3
-gem "foreman" # run server and worker
+gem "foreman", git: "https://github.com/bitaculous/foreman", branch: "update-thor-dependency" # run server and worker
 gem "github_changelog_generator", git: "https://github.com/skywinder/github-changelog-generator"
-gem "haml-rails" # haml as templating engine
-gem "inherited_resources"
 gem "inky-rb", require: "inky" # for email templates
 gem "jbuilder", ">= 2.4.1" # for building JSON
 gem "json", git: "https://github.com/flori/json", branch: "v1.8"
@@ -36,7 +34,6 @@ gem "kaminari" # pagination
 gem "mailgun-ruby", require: "mailgun" # sending and tracking emails
 gem "marginalia", git: "https://github.com/basecamp/marginalia" # query comments
 gem "mini_racer", platforms: :ruby
-gem "newrelic_rpm" # monitor app performance
 gem "premailer-rails" # Stylesheet inlining for email
 gem "puma" # server
 gem "rack-protection", git: "https://github.com/sinatra/sinatra" # DJ dependency
@@ -55,16 +52,15 @@ group :development do
   gem "better_errors" # better rails error messages
   gem "binding_of_caller" # interactive console in browser on errors
   gem "brakeman", require: false # security vulnerability scanner
-  gem "bullet" # notify of db queries that can be improved
+  gem "bullet", git: "https://github.com/duduribeiro/bullet", branch: "wip_rails6_alpha" # notify of db queries that can be improved
   gem "bundler-audit", require: false # check gems for patches
-  gem "dotenv-rails" # for loading environment variables
+  gem "dotenv-rails", git: "https://github.com/y-yagi/dotenv", branch: "support-rails-60" # for loading environment variables
   gem "guard" # automate command line
   gem "guard-livereload", require: false # changed files = autoreloaded browser
   gem "guard-minitest" # automatically run tests
   gem "guard-rubocop" # use rubocop with guard
   gem "letter_opener" # show sent emails in the browser
   gem "listen", "~> 3.0.5"
-  gem "meta_request" # for usings RailsPanel Chrome extension
   gem "overcommit", require: false # git hooks
   gem "rack-livereload"
   gem "rubocop", require: false # evaluate against style guide
@@ -76,7 +72,6 @@ group :development do
   gem "terminal-notifier", require: false # send notifications to macOS
   gem "terminal-notifier-guard", require: false # terminal-notifier + Guard
   gem "web-console", "~> 3.0" # for debugging via in-browser IRB consoles
-  # gem "xray-rails", ">= 0.1.18" # inspect view partials in the browser
 end
 
 group :test do
@@ -85,7 +80,6 @@ group :test do
   gem "connection_pool"
   gem "database_cleaner" # database cleaner for testing
   gem "factory_bot_rails" # for setting up ruby objects as test data
-  gem "haml-lint" # style checking for haml
   gem "launchy"
   gem "minitest-capybara"
   gem "minitest-ci", git: "https://github.com/circleci/minitest-ci"

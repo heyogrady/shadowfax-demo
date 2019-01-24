@@ -49,6 +49,9 @@ end
 
 class ActiveSupport::TestCase
 
+  # Run tests in parallel with specified workers
+  parallelize(workers: :number_of_processors)
+
   ActiveRecord::Migration.check_pending!
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alpha order.
