@@ -5,7 +5,7 @@ if ENV["CIRCLE_ARTIFACTS"]
   SimpleCov.coverage_dir(dir)
 end
 
-SimpleCov.start do
+SimpleCov.start "rails" do
   add_filter("/app/admin/")
   add_filter("/app/channels/")
   add_filter("/app/controllers/admin/")
@@ -24,6 +24,7 @@ SimpleCov.start do
   add_group "Mailers", "app/mailers"
   add_group "Workers", "app/workers"
   add_group "Jobs", "app/jobs"
+  add_group "Channels", "app/channels"
 
   add_group("Services", "app/services")
   add_group("Carriers", "app/carriers")
@@ -50,7 +51,7 @@ end
 class ActiveSupport::TestCase
 
   # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
+  # parallelize(workers: :number_of_processors)
 
   ActiveRecord::Migration.check_pending!
 

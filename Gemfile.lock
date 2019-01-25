@@ -156,6 +156,8 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     ansi (1.5.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     ast (2.4.0)
     autoprefixer-rails (9.4.6)
       execjs
@@ -192,6 +194,9 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    chromedriver-helper (2.1.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     cliver (0.3.2)
     codeclimate-test-reporter (1.0.7)
       simplecov
@@ -206,7 +211,6 @@ GEM
     crass (1.0.4)
     css_parser (1.6.0)
       addressable
-    database_cleaner (1.7.0)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     debug_inspector (0.0.3)
@@ -293,6 +297,7 @@ GEM
     inky-rb (1.3.7.3)
       foundation_emails (~> 2)
       nokogiri
+    io-like (0.3.0)
     ipaddress (0.8.3)
     jaro_winkler (1.5.2)
     jazz_fingers (5.0.0)
@@ -417,6 +422,8 @@ GEM
     rack (2.0.6)
     rack-livereload (0.3.17)
       rack
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.4.2)
@@ -487,6 +494,7 @@ GEM
     ruby-progressbar (1.10.0)
     ruby_audit (1.2.0)
       bundler-audit (~> 0.6.0)
+    rubyzip (1.2.2)
     safe_yaml (1.0.4)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
@@ -508,6 +516,9 @@ GEM
     secure_headers (3.7.3)
       useragent
     selectize-rails (0.12.6)
+    selenium-webdriver (3.141.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2, >= 1.2.2)
     shellany (0.0.1)
     shog (0.2.1)
       colorize (>= 0.8)
@@ -575,6 +586,10 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
+    webpacker (4.0.0.rc.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -601,9 +616,9 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
+  chromedriver-helper
   codeclimate-test-reporter
   connection_pool
-  database_cleaner
   devise (>= 4.2.0)
   dotenv-rails!
   email_prefixer
@@ -619,14 +634,14 @@ DEPENDENCIES
   informed (~> 1.0)
   inky-rb
   jazz_fingers (>= 3.0.2)
-  jbuilder (>= 2.4.1)
+  jbuilder (>= 2.5)
   jquery-rails
   json!
   kaminari
   knapsack
   launchy
   letter_opener
-  listen (~> 3.0.5)
+  listen (>= 3.0.5, < 3.2)
   mail_interceptor
   mailgun-ruby
   marginalia!
@@ -636,7 +651,7 @@ DEPENDENCIES
   minitest-reporters
   mocha
   overcommit
-  pg
+  pg (>= 0.18, < 2.0)
   pgcli-rails
   poltergeist
   premailer-rails
@@ -656,6 +671,7 @@ DEPENDENCIES
   sass-rails (>= 5.0.3)
   scss_lint
   secure_headers (~> 3.0)
+  selenium-webdriver
   semantic-ui-sass!
   shog
   shoulda-context
@@ -675,6 +691,7 @@ DEPENDENCIES
   vcr
   web-console (~> 3.0)
   webmock
+  webpacker (>= 4.0.0.rc.3)
 
 RUBY VERSION
    ruby 2.6.0p0

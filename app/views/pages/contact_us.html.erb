@@ -15,7 +15,7 @@
       <%= f.input(:title, required: true) %>
       <%= f.input(:email, required: true) %>
       <%= f.input(:body, as: :text, input_html: { rows: "3" }) %>
-      <%= f.submit("Send message") %>
+      <%= f.button(:submit, "Send message") %>
     <% end %>
   </div>
 </div><!-- /.main ui container -->
