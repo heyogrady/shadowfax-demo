@@ -9,6 +9,7 @@ Rails.application.configure do
   # Needs to be false on Heroku
   config.assets.initialize_on_precompile = false
 
+  # TODO: move JS to webpacker
   config.assets.js_compressor = :uglifier
 
   config.log_level = :debug

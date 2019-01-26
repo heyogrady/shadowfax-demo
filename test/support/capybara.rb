@@ -15,18 +15,18 @@ class ActionDispatch::IntegrationTest
 
 end
 
-# Monkey patch so that AR shares a single DB connection among all threads.
-# This ensures data consistency between the test thread and poltergeist thread.
-class ActiveRecord::Base
+# # Monkey patch so that AR shares a single DB connection among all threads.
+# # This ensures data consistency between the test thread and poltergeist thread.
+# class ActiveRecord::Base
 
-  mattr_accessor :shared_connection
-  @@shared_connection = nil
+#   mattr_accessor :shared_connection
+#   @@shared_connection = nil
 
-  def self.connection
-    @@shared_connection || begin
-      ConnectionPool::Wrapper.new(size: 1) { retrieve_connection }
-    end
-  end
+#   def self.connection
+#     @@shared_connection || begin
+#       ConnectionPool::Wrapper.new(size: 1) { retrieve_connection }
+#     end
+#   end
 
-end
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+# end
+# ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection

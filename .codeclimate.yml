@@ -86,3 +86,4 @@ exclude_patterns:
   - "tmp/**/*"
   - "uploads/**/*"
   - "vendor/**/*"
+  - "babel.config.js"

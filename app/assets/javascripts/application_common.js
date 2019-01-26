@@ -1,6 +1,5 @@
 // ------- CORE -----------------------
 //= require jquery
-//= require jquery_ujs
 //= require semantic-ui
 
 // ------- VENDOR ---------------------
@@ -11,6 +10,3 @@
 
 // ------- APP COMPONENTS -------------
 //= require common/semantic-ui
-
-// ------- TURBOLINKS -----------------
-//= require turbolinks
